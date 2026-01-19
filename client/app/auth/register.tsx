@@ -1,17 +1,67 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TextInput,
     TouchableOpacity,
+    Alert,
+    ActivityIndicator,
+    Platform,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
 import { useRouter } from 'expo-router';
+import { register } from '../../api/auth';
 
 const RegisterScreen = () => {
     const router = useRouter();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleRegister = async () => {
+        console.log("Sign Up button pressed");
+        if (!name || !email || !password || !confirmPassword) {
+            console.log("Missing fields");
+            Alert.alert('Error', 'Please fill in all fields');
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            console.log("Passwords do not match");
+            Alert.alert('Error', 'Passwords do not match');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            console.log("Calling auth.register with", name, email);
+            await register(name, email, password);
+            console.log("Registration successful");
+
+            // Web Alert callback fix: Navigate immediately or use window.alert
+            if (Platform.OS === 'web') {
+                if (window.confirm('Account created! Click OK to log in.')) {
+                    router.replace('/auth/login');
+                } else {
+                    // Fallback if they cancel, but usually we want them to login
+                    router.replace('/auth/login');
+                }
+            } else {
+                Alert.alert('Success', 'Account created! Please log in.', [
+                    { text: 'OK', onPress: () => router.replace('/auth/login') },
+                ]);
+            }
+        } catch (error) {
+            console.error("Register component error:", error);
+            Alert.alert('Registration Failed', error as string);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <MobileCard title="Create Account" backgroundColor="#F5F3FF" showBack onBack={() => router.back()}>
@@ -23,6 +73,17 @@ const RegisterScreen = () => {
 
             <View style={styles.spaceY4}>
                 <View style={styles.inputContainer}>
+                    <Feather name="user" size={20} color="#9D96E1" style={styles.inputIcon} />
+                    <TextInput
+                        placeholder="Full Name"
+                        style={styles.input}
+                        placeholderTextColor="#A0A0C0"
+                        value={name}
+                        onChangeText={setName}
+                    />
+                </View>
+
+                <View style={styles.inputContainer}>
                     <Feather name="mail" size={20} color="#9D96E1" style={styles.inputIcon} />
                     <TextInput
                         placeholder="Email Address"
@@ -30,6 +91,8 @@ const RegisterScreen = () => {
                         placeholderTextColor="#A0A0C0"
                         keyboardType="email-address"
                         autoCapitalize="none"
+                        value={email}
+                        onChangeText={setEmail}
                     />
                 </View>
 
@@ -40,6 +103,8 @@ const RegisterScreen = () => {
                         style={styles.input}
                         placeholderTextColor="#A0A0C0"
                         secureTextEntry
+                        value={password}
+                        onChangeText={setPassword}
                     />
                 </View>
 
@@ -50,16 +115,25 @@ const RegisterScreen = () => {
                         style={styles.input}
                         placeholderTextColor="#A0A0C0"
                         secureTextEntry
+                        value={confirmPassword}
+                        onChangeText={setConfirmPassword}
                     />
                 </View>
             </View>
 
             <TouchableOpacity
                 style={styles.mainButton}
-                onPress={() => router.replace('/(tabs)')}
+                onPress={handleRegister}
+                disabled={loading}
             >
-                <Text style={styles.mainButtonText}>Sign Up</Text>
-                <Feather name="arrow-right" size={20} color="#fff" />
+                {loading ? (
+                    <ActivityIndicator color="#fff" />
+                ) : (
+                    <>
+                        <Text style={styles.mainButtonText}>Sign Up</Text>
+                        <Feather name="arrow-right" size={20} color="#fff" />
+                    </>
+                )}
             </TouchableOpacity>
 
             <View style={styles.toggleContainer}>

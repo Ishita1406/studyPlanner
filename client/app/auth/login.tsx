@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TextInput,
     TouchableOpacity,
+    Alert,
+    ActivityIndicator,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
 import { useRouter } from 'expo-router';
+import { login } from '../../api/auth';
 
 const LoginScreen = () => {
     const router = useRouter();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleLogin = async () => {
+        console.log("Login button pressed");
+        if (!email || !password) {
+            console.log("Missing fields");
+            Alert.alert('Error', 'Please fill in all fields');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            console.log("Calling auth.login with", email);
+            await login(email, password);
+            console.log("Login successful, navigating");
+            router.replace('/(tabs)');
+        } catch (error) {
+            console.error("Login component error:", error);
+            Alert.alert('Login Failed', error as string);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <MobileCard title="Welcome Back" backgroundColor="#F5F3FF">
@@ -30,6 +58,8 @@ const LoginScreen = () => {
                         placeholderTextColor="#A0A0C0"
                         keyboardType="email-address"
                         autoCapitalize="none"
+                        value={email}
+                        onChangeText={setEmail}
                     />
                 </View>
 
@@ -40,6 +70,8 @@ const LoginScreen = () => {
                         style={styles.input}
                         placeholderTextColor="#A0A0C0"
                         secureTextEntry
+                        value={password}
+                        onChangeText={setPassword}
                     />
                 </View>
 
@@ -50,10 +82,17 @@ const LoginScreen = () => {
 
             <TouchableOpacity
                 style={styles.mainButton}
-                onPress={() => router.replace('/(tabs)')}
+                onPress={handleLogin}
+                disabled={loading}
             >
-                <Text style={styles.mainButtonText}>Log In</Text>
-                <Feather name="arrow-right" size={20} color="#fff" />
+                {loading ? (
+                    <ActivityIndicator color="#fff" />
+                ) : (
+                    <>
+                        <Text style={styles.mainButtonText}>Log In</Text>
+                        <Feather name="arrow-right" size={20} color="#fff" />
+                    </>
+                )}
             </TouchableOpacity>
 
             <View style={styles.toggleContainer}>

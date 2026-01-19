@@ -1,15 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TextInput,
     TouchableOpacity,
+    Alert,
+    ActivityIndicator
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
+import { createProfile } from '../../api/user';
+import { useRouter } from 'expo-router';
 
 const SetupScreen = () => {
+    const router = useRouter();
+    const [subject, setSubject] = useState('');
+    const [topics, setTopics] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleNext = async () => {
+        if (!subject) {
+            Alert.alert('Error', 'Please add a subject');
+            return;
+        }
+
+        setLoading(true);
+        try {
+            // Simplified payload for now
+            await createProfile({
+                subjects: [{ name: subject, topics: topics.split(',').map(t => t.trim()) }]
+            });
+            Alert.alert("Success", "Profile updated!");
+            router.replace('/(tabs)');
+        } catch (error) {
+            Alert.alert('Error', error as string);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <MobileCard title="AI Study Planner" backgroundColor="#F0F7FF">
             <View style={styles.centered}>
@@ -29,14 +59,18 @@ const SetupScreen = () => {
                 <Text style={styles.sectionTitle}>What&apos;s your syllabus?</Text>
 
                 <TextInput
-                    placeholder="Subject"
+                    placeholder="Subject (e.g., Mathematics)"
                     style={styles.input}
                     placeholderTextColor="#5C5C8E"
+                    value={subject}
+                    onChangeText={setSubject}
                 />
                 <TextInput
-                    placeholder="Topics"
+                    placeholder="Topics (comma separated)"
                     style={styles.input}
                     placeholderTextColor="#5C5C8E"
+                    value={topics}
+                    onChangeText={setTopics}
                 />
 
                 <View style={styles.dividerContainer}>
@@ -60,9 +94,19 @@ const SetupScreen = () => {
                 </View>
             </View>
 
-            <TouchableOpacity style={styles.nextButton}>
-                <Text style={styles.nextButtonText}>Next</Text>
-                <Feather name="chevron-right" size={20} color="#fff" />
+            <TouchableOpacity
+                style={styles.nextButton}
+                onPress={handleNext}
+                disabled={loading}
+            >
+                {loading ? (
+                    <ActivityIndicator color="#fff" />
+                ) : (
+                    <>
+                        <Text style={styles.nextButtonText}>Next</Text>
+                        <Feather name="chevron-right" size={20} color="#fff" />
+                    </>
+                )}
             </TouchableOpacity>
         </MobileCard>
     );

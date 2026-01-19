@@ -1,14 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     View,
     Text,
     StyleSheet,
     TouchableOpacity,
+    ActivityIndicator,
+    ScrollView,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
+import { getTodayPlan } from '../../api/studyPlan';
 
 const TodaysPlanScreen = () => {
+    const [plan, setPlan] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+
+    const fetchPlan = async () => {
+        setLoading(true);
+        try {
+            const data = await getTodayPlan();
+            setPlan(data);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchPlan();
+    }, []);
+
+    const formatDate = (dateString?: string) => {
+        if (!dateString) return new Date().toDateString();
+        return new Date(dateString).toDateString();
+    };
+
     return (
         <MobileCard
             title="Today's Plan"
@@ -16,37 +43,43 @@ const TodaysPlanScreen = () => {
             headerRight={<Feather name="settings" size={20} color="#9D96E1" />}
         >
             <View style={styles.dateContainer}>
-                <Feather name="settings" size={12} color="#9D96E1" />
-                <Text style={styles.dateText}>May 2 2024</Text>
+                <Feather name="calendar" size={12} color="#9D96E1" />
+                <Text style={styles.dateText}>{formatDate(plan?.date)}</Text>
                 <Text style={styles.separator}>|</Text>
-                <TouchableOpacity style={styles.adaptiveButton}>
-                    <Text style={styles.adaptiveText}>Adaptive Schedule</Text>
-                    <Feather name="x" size={12} color="#9D96E1" />
+                <TouchableOpacity style={styles.adaptiveButton} onPress={fetchPlan}>
+                    <Text style={styles.adaptiveText}>Refresh</Text>
+                    <Feather name="refresh-cw" size={12} color="#9D96E1" />
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.spaceY4}>
-                {[
-                    { id: '1', title: 'Data Structures', sub: 'Binary Trees', time: '1h 15m', priority: 1, color: '#22C55E', bg: '#E8F8F2' },
-                    { id: '2', title: 'Statistics', sub: 'Probability Practice', time: '45m', priority: 3, color: '#EC4899', bg: '#FDF0F3' },
-                    { id: '3', title: 'Review Session', sub: 'Revise Chapter 3', time: '30m', priority: 3, color: '#3B82F6', bg: '#F0F7FF' },
-                ].map(item => (
-                    <View key={item.id} style={styles.taskCard}>
-                        <View style={styles.taskHeader}>
-                            <Text style={styles.taskTitle}>{item.id}. {item.title}</Text>
-                        </View>
-                        <View style={styles.taskRow}>
-                            <View style={[styles.iconCircle, { backgroundColor: item.bg }]}>
-                                <Feather name="book" size={16} color={item.color} />
+            {loading ? (
+                <ActivityIndicator size="large" color="#9D96E1" style={{ marginTop: 20 }} />
+            ) : !plan || !plan.tasks || plan.tasks.length === 0 ? (
+                <View style={styles.emptyState}>
+                    <Text style={styles.emptyText}>No plan generated for today.</Text>
+                </View>
+            ) : (
+                <ScrollView contentContainerStyle={styles.spaceY4}>
+                    {plan.tasks.map((item: any, index: number) => (
+                        <View key={item._id || index} style={styles.taskCard}>
+                            <View style={styles.taskHeader}>
+                                <Text style={styles.taskTitle}>{index + 1}. {item.topic?.name || 'Topic'}</Text>
                             </View>
-                            <Text style={styles.taskMeta}>{item.sub} | {item.time}</Text>
-                            <View style={styles.priorityCircle}>
-                                <Text style={styles.priorityText}>{item.priority}</Text>
+                            <View style={styles.taskRow}>
+                                <View style={[styles.iconCircle, { backgroundColor: '#E8F8F2' }]}>
+                                    <Feather name="book" size={16} color="#22C55E" />
+                                </View>
+                                <Text style={styles.taskMeta}>
+                                    {item.topic?.subject || 'Subject'} | {item.plannedMinutes}m
+                                </Text>
+                                <View style={styles.priorityCircle}>
+                                    <Text style={styles.priorityText}>{item.priority || 1}</Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
-                ))}
-            </View>
+                    ))}
+                </ScrollView>
+            )}
 
             <View style={styles.buttonRow}>
                 <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}>
@@ -163,6 +196,15 @@ const styles = StyleSheet.create({
     actionText: {
         color: '#fff',
         fontWeight: '700',
+        fontSize: 14,
+    },
+    emptyState: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+    },
+    emptyText: {
+        color: '#A0A0C0',
         fontSize: 14,
     },
 });
