@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
+import subjectRouter from './routes/subject.routes.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use('/auth', authRouter);
 app.use('/profile', userRouter);
+app.use('/subject', subjectRouter);
 
 let port = 8000;
 
