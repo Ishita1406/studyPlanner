@@ -1,67 +1,101 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
     StyleSheet,
+    ActivityIndicator,
+    ScrollView
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
+import { getPlanByDate } from '../../api/studyPlan';
+import { Calendar } from 'react-native-calendars';
+import type { DateData } from 'react-native-calendars';
 
 const StudyCalendarScreen = () => {
+    const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+    const [plan, setPlan] = useState<any>(null);
+    const [loading, setLoading] = useState(false);
+
+    const fetchPlanForDate = async (dateString: string) => {
+        setLoading(true);
+        try {
+            const data = await getPlanByDate(dateString);
+            setPlan(data);
+        } catch (error) {
+            console.error(error);
+            setPlan(null);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchPlanForDate(selectedDate);
+    }, [selectedDate]);
+
     return (
         <MobileCard
             title="Your Study Calendar"
             backgroundColor="#F0FFF8"
-            headerRight={<Feather name="calendar" size={20} color="#22C55E" />}
+            headerRight={<Feather name="calendar" size={20} color="#cb90ecff" />}
         >
             <View style={styles.calendarCard}>
-                <View style={styles.calendarHeader}>
-                    <Text style={styles.calendarTitle}>May 2024</Text>
-                    <Feather name="chevron-right" size={20} color="#D1D5DB" />
-                </View>
-
-                <View style={styles.weekDays}>
-                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fir', 'Set'].map(day => (
-                        <Text key={day} style={styles.weekDayText}>{day}</Text>
-                    ))}
-                </View>
-
-                <View style={styles.daysGrid}>
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map(day => {
-                        let style = styles.dayText;
-                        if (day === 2) style = { ...style, color: '#F8A4B3' } as any;
-                        if (day === 3) style = { ...style, color: '#67C7A6' } as any;
-                        if (day === 8) style = { ...style, color: '#4AA9FF' } as any;
-                        if (day === 9) style = { ...style, color: '#F8A4B3' } as any;
-
-                        return (
-                            <Text key={day} style={style}>{day}</Text>
-                        );
-                    })}
-                </View>
+                <Calendar
+                    onDayPress={(day: DateData) => {
+                        setSelectedDate(day.dateString);
+                    }}
+                    markedDates={{
+                        [selectedDate]: { selected: true, disableTouchEvent: true }
+                    }}
+                    theme={{
+                        backgroundColor: '#ffffff',
+                        calendarBackground: '#ffffff',
+                        textSectionTitleColor: '#b6c1cd',
+                        selectedDayBackgroundColor: '#67C7A6',
+                        selectedDayTextColor: '#ffffff',
+                        todayTextColor: '#67C7A6',
+                        dayTextColor: '#2d4150',
+                        textDisabledColor: '#d9e1e8',
+                        dotColor: '#00adf5',
+                        selectedDotColor: '#ffffff',
+                        arrowColor: '#5C5C8E',
+                        disabledArrowColor: '#d9e1e8',
+                        monthTextColor: '#5C5C8E',
+                        indicatorColor: 'blue',
+                        textDayFontWeight: '300',
+                        textMonthFontWeight: 'bold',
+                        textDayHeaderFontWeight: '300',
+                        textDayFontSize: 14,
+                        textMonthFontSize: 16,
+                        textDayHeaderFontSize: 14
+                    }}
+                />
             </View>
 
             <View style={styles.spaceY4}>
-                <Text style={styles.upcomingLabel}>Upcoming Adjustments</Text>
-                <View style={styles.upcomingCard}>
-                    <View style={styles.upcomingList}>
-                        <View style={styles.upcomingItem}>
-                            <View style={[styles.bullet, { backgroundColor: '#67C7A6' }]} />
-                            <Text style={styles.upcomingText}>
-                                May 4: <Text style={{ fontWeight: '600', color: '#5C5C8E' }}>Extra Statistics Review</Text>
-                            </Text>
-                        </View>
-                        <View style={styles.upcomingItem}>
-                            <View style={[styles.bullet, { backgroundColor: '#4AA9FF' }]} />
-                            <Text style={styles.upcomingText}>
-                                May 6: <Text style={{ fontWeight: '600', color: '#5C5C8E' }}>Mock Test Scheduled</Text>
-                            </Text>
+                <Text style={styles.upcomingLabel}>Plan for {new Date(selectedDate).toDateString()}</Text>
+
+                {loading ? (
+                    <ActivityIndicator color="#67C7A6" />
+                ) : plan && plan.tasks ? (
+                    <View style={styles.upcomingCard}>
+                        <View style={styles.upcomingList}>
+                            {plan.tasks.map((task: any, idx: number) => (
+                                <View key={idx} style={styles.upcomingItem}>
+                                    <View style={[styles.bullet, { backgroundColor: '#67C7A6' }]} />
+                                    <Text style={styles.upcomingText}>
+                                        {task.topic?.name || 'Topic'}: <Text style={{ fontWeight: '600', color: '#5C5C8E' }}>{task.plannedMinutes}m</Text>
+                                    </Text>
+                                </View>
+                            ))}
                         </View>
                     </View>
-                    <View style={styles.calendarIcon}>
-                        <Feather name="calendar" size={64} color="#67C7A6" />
+                ) : (
+                    <View style={styles.emptyState}>
+                        <Text style={styles.emptyText}>No plan for this date.</Text>
                     </View>
-                </View>
+                )}
             </View>
         </MobileCard>
     );
@@ -73,50 +107,14 @@ const styles = StyleSheet.create({
     calendarCard: {
         backgroundColor: '#fff',
         borderRadius: 32,
-        padding: 24,
+        padding: 16,
         marginBottom: 24,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.05,
         shadowRadius: 2,
         elevation: 1,
-    },
-    calendarHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 16,
-    },
-    calendarTitle: {
-        fontWeight: '700',
-        fontSize: 16,
-        color: '#5C5C8E',
-    },
-    weekDays: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginBottom: 16,
-    },
-    weekDayText: {
-        fontSize: 10,
-        fontWeight: '700',
-        color: '#F8A4B3',
-        textAlign: 'center',
-        width: 28,
-    },
-    daysGrid: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-    },
-    dayText: {
-        width: 28,
-        height: 28,
-        textAlign: 'center',
-        fontSize: 12,
-        fontWeight: '700',
-        color: '#6B7280',
-        marginBottom: 12,
+        overflow: 'hidden'
     },
     spaceY4: {
         gap: 16,
@@ -141,6 +139,7 @@ const styles = StyleSheet.create({
     upcomingList: {
         gap: 8,
         zIndex: 10,
+        width: '100%'
     },
     upcomingItem: {
         flexDirection: 'row',
@@ -156,9 +155,12 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#6B7280',
     },
-    calendarIcon: {
-        width: 64,
-        height: 64,
-        opacity: 0.3,
+    emptyState: {
+        padding: 16,
+        alignItems: 'center',
+    },
+    emptyText: {
+        color: '#A0A0C0',
+        fontStyle: 'italic',
     },
 });
