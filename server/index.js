@@ -6,6 +6,7 @@ import authRouter from './routes/auth.routes.js';
 import userRouter from './routes/user.routes.js';
 import subjectRouter from './routes/subject.routes.js';
 import topicRouter from './routes/topics.routes.js';
+import dailyStudyPlanRouter from './routes/dailyStudyPlan.routes.js';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use('/auth', authRouter);
 app.use('/profile', userRouter);
 app.use('/subject', subjectRouter);
 app.use('/topics', topicRouter);
+app.use('/study-plan', dailyStudyPlanRouter);
 
 let port = 8000;
 
