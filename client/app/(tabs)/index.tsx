@@ -9,11 +9,13 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
-import { getTodayPlan } from '../../api/studyPlan';
+import { useRouter } from 'expo-router';
+import { getTodayPlan, regeneratePlan } from '../../api/studyPlan';
 
 const TodaysPlanScreen = () => {
     const [plan, setPlan] = useState<any>(null);
     const [loading, setLoading] = useState(true);
+    const [recalibrating, setRecalibrating] = useState(false);
 
     const fetchPlan = async () => {
         setLoading(true);
@@ -36,6 +38,37 @@ const TodaysPlanScreen = () => {
         return new Date(dateString).toDateString();
     };
 
+    const router = useRouter();
+
+    const handleStartStudying = () => {
+        if (!plan || !plan.tasks || plan.tasks.length === 0) {
+            // Ideally show a toast or alert
+            return;
+        }
+        // Start the first task
+        const firstTask = plan.tasks[0];
+        router.push({
+            pathname: '/(tabs)/study-session',
+            params: {
+                topicId: firstTask.topic._id,
+                topicName: firstTask.topic.name,
+                subjectName: firstTask.topic.subject?.name || firstTask.topic.subject // Handle populated or not
+            }
+        });
+    };
+
+    const handleSkipDay = async () => {
+        setRecalibrating(true);
+        try {
+            const newPlan = await regeneratePlan();
+            setPlan(newPlan);
+        } catch (error) {
+            console.error("Failed to recalibrate:", error);
+        } finally {
+            setRecalibrating(false);
+        }
+    };
+
     return (
         <MobileCard
             title="Today's Plan"
@@ -54,6 +87,12 @@ const TodaysPlanScreen = () => {
 
             {loading ? (
                 <ActivityIndicator size="large" color="#9D96E1" style={{ marginTop: 20 }} />
+            ) : recalibrating ? (
+                <View style={styles.recalibratingContainer}>
+                    <ActivityIndicator size="large" color="#F8A4B3" />
+                    <Text style={styles.recalibratingText}>AI Recalibrating...</Text>
+                    <Text style={styles.recalibratingSubtext}>Adjusting for missed time</Text>
+                </View>
             ) : !plan || !plan.tasks || plan.tasks.length === 0 ? (
                 <View style={styles.emptyState}>
                     <Text style={styles.emptyText}>No plan generated for today.</Text>
@@ -70,7 +109,7 @@ const TodaysPlanScreen = () => {
                                     <Feather name="book" size={16} color="#22C55E" />
                                 </View>
                                 <Text style={styles.taskMeta}>
-                                    {item.topic?.subject || 'Subject'} | {item.plannedMinutes}m
+                                    {item.topic?.subject?.name || item.topic?.subject || 'Subject'} | {item.plannedMinutes}m
                                 </Text>
                                 <View style={styles.priorityCircle}>
                                     <Text style={styles.priorityText}>{item.priority || 1}</Text>
@@ -82,10 +121,17 @@ const TodaysPlanScreen = () => {
             )}
 
             <View style={styles.buttonRow}>
-                <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}>
+                <TouchableOpacity
+                    style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}
+                    onPress={handleStartStudying}
+                >
                     <Text style={styles.actionText}>Start Studying</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.actionButton, { backgroundColor: '#F8A4B3', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}>
+                <TouchableOpacity
+                    style={[styles.actionButton, { backgroundColor: '#F8A4B3', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}
+                    onPress={handleSkipDay}
+                    disabled={recalibrating}
+                >
                     <Text style={styles.actionText}>Skip Day</Text>
                     <Feather name="chevron-right" size={16} color="#fff" />
                 </TouchableOpacity>
@@ -206,5 +252,19 @@ const styles = StyleSheet.create({
     emptyText: {
         color: '#A0A0C0',
         fontSize: 14,
+    },
+    recalibratingContainer: {
+        alignItems: 'center',
+        padding: 32,
+        gap: 12,
+    },
+    recalibratingText: {
+        fontSize: 16,
+        fontWeight: '700',
+        color: '#5C5C8E',
+    },
+    recalibratingSubtext: {
+        fontSize: 12,
+        color: '#A0A0C0',
     },
 });

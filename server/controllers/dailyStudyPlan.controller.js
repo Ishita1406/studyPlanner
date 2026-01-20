@@ -1,4 +1,5 @@
 import DailyStudyPlan from "../models/dailyStudyPlan.model.js";
+import { generateDailyPlan } from "../utils/scheduler.js";
 
 export const getTodayPlan = async (req, res) => {
   try {
@@ -51,33 +52,24 @@ export const getPlanByDate = async (req, res) => {
 
 export const regeneratePlan = async (req, res) => {
   try {
-    // You should protect this with admin/system middleware (Do this later)
-    const { userId, date, tasks } = req.body;
+    const userId = req.user?.sub;
 
-    if (!userId || !date || !tasks) {
-      return res.status(400).json({ message: "Missing required fields" });
+    if (!userId) {
+      return res.status(401).json({ message: "Unauthorized" });
     }
 
-    const totalPlannedMinutes = tasks.reduce(
-      (sum, t) => sum + t.plannedMinutes,
-      0
-    );
+    const plan = await generateDailyPlan(userId);
 
-    const plan = await DailyStudyPlan.findOneAndUpdate(
-      { user: userId, date },
-      {
-        user: userId,
-        date,
-        tasks,
-        totalPlannedMinutes,
-        generatedAt: new Date(),
-      },
-      { upsert: true, new: true }
-    );
+    if (!plan) {
+      return res.status(200).json({ message: "No pending topics to schedule.", plan: null });
+    }
+
+    // Populate for response
+    const populatedPlan = await DailyStudyPlan.findById(plan._id).populate("tasks.topic", "name subject");
 
     return res.status(200).json({
       message: "Study plan generated successfully",
-      plan,
+      plan: populatedPlan,
     });
   } catch (error) {
     console.error("Regenerate plan error:", error);

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { getItem } from './storage';
-import { API_URL } from './config';
+import API_URL from './config';
 
 const client = axios.create({
     baseURL: API_URL,

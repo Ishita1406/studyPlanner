@@ -25,9 +25,9 @@ export const getPlanByDate = async (date: string) => {
     }
 };
 
-export const regeneratePlan = async (userId: string, date: string, tasks: any[]) => {
+export const regeneratePlan = async () => {
     try {
-        const response = await client.post('/study-plan/regenerate', { userId, date, tasks });
+        const response = await client.post('/study-plan/regenerate');
         return response.data.plan;
     } catch (error: any) {
         throw error.response?.data?.message || 'Failed to regenerate plan';

@@ -3,15 +3,12 @@ import { setItem, getItem, deleteItem } from './storage';
 
 export const login = async (email: string, password: string) => {
     try {
-        console.log("Sending login request to:", '/auth/login');
         const response = await client.post('/auth/login', { email, password });
-        console.log("Login response received:", response.status);
         const { accessToken } = response.data;
 
         await setItem('token', accessToken);
 
         // Fetch user details
-        console.log("Fetching user details...");
         const userResponse = await client.get('/auth/get');
         const user = userResponse.data.user;
 

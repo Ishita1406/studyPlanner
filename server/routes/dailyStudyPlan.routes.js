@@ -6,6 +6,6 @@ const dailyStudyPlanRouter = express.Router();
 
 dailyStudyPlanRouter.get("/today", authenticateToken, getTodayPlan);
 dailyStudyPlanRouter.get("/", authenticateToken, getPlanByDate);
-dailyStudyPlanRouter.post("/regenerate", regeneratePlan);
+dailyStudyPlanRouter.post("/regenerate", authenticateToken, regeneratePlan);
 
 export default dailyStudyPlanRouter;

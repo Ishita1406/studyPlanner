@@ -8,6 +8,7 @@ interface MobileCardProps {
   onBack?: () => void;
   children: React.ReactNode;
   headerRight?: React.ReactNode;
+  headerLeft?: React.ReactNode;
   footer?: React.ReactNode;
   bgClass?: string;
   backgroundColor?: string;
@@ -19,6 +20,7 @@ const MobileCard: React.FC<MobileCardProps> = ({
   onBack,
   children,
   headerRight,
+  headerLeft,
   footer,
   bgClass, // keeping for backward compatibility if needed, but mostly unused now
   backgroundColor = '#fff',
@@ -39,14 +41,16 @@ const MobileCard: React.FC<MobileCardProps> = ({
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.headerLeft}>
-          {showBack && (
+          {headerLeft ? (
+            headerLeft
+          ) : showBack ? (
             <TouchableOpacity
               onPress={handleBack}
               style={styles.backButton}
             >
               <Feather name="chevron-left" size={24} color="#9D96E1" />
             </TouchableOpacity>
-          )}
+          ) : null}
         </View>
 
         <Text style={styles.title}>{title}</Text>

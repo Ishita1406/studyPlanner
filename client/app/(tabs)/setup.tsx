@@ -13,6 +13,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
 import { createProfile, getProfile, updateProfile } from '../../api/user';
+import { getTopicBreakdown } from '../../api/ai';
 import { useRouter } from 'expo-router';
 
 // Defines the shape of a subject in our local state
@@ -29,9 +30,13 @@ const SetupScreen = () => {
     const [currentSubject, setCurrentSubject] = useState('');
     const [currentTopics, setCurrentTopics] = useState('');
 
+    // Energy Profile State
+    const [peakEnergy, setPeakEnergy] = useState<'morning' | 'afternoon' | 'evening' | null>(null);
+
     // Profile State
     const [existingProfile, setExistingProfile] = useState<any>(null);
     const [loading, setLoading] = useState(false);
+    const [aiLoading, setAiLoading] = useState(false);
     const [profileLoading, setProfileLoading] = useState(true);
 
     // Initial Fetch: Check if profile exists
@@ -87,6 +92,29 @@ const SetupScreen = () => {
         }
     };
 
+    const handleAiGenerate = async () => {
+        if (!currentSubject.trim()) {
+            showAlert('Error', 'Please enter a Subject name first');
+            return;
+        }
+        setAiLoading(true);
+        try {
+            const topics = await getTopicBreakdown(currentSubject);
+            // Topics return as object array or strings? Our API returns {name, estimatedMinutes...}
+            // For now, let's just extract names for the simple list
+            const topicNames = Array.isArray(topics)
+                ? topics.map((t: any) => t.name || t).join(', ')
+                : '';
+
+            setCurrentTopics(topicNames);
+        } catch (error) {
+            console.error(error);
+            showAlert('Error', 'Failed to generate topics');
+        } finally {
+            setAiLoading(false);
+        }
+    };
+
     const handleSave = async () => {
         if (subjects.length === 0) {
             showAlert('Error', 'Please add at least one subject');
@@ -96,7 +124,8 @@ const SetupScreen = () => {
         setLoading(true);
         try {
             const payload = {
-                subjects: subjects
+                subjects: subjects,
+                energyProfile: peakEnergy ? [{ hour: peakEnergy === 'morning' ? 9 : peakEnergy === 'afternoon' ? 14 : 20, energy: 100 }] : []
                 // We can add deadline / working hours fields here later when backend supports them
             };
 
@@ -204,6 +233,21 @@ const SetupScreen = () => {
                         onChangeText={setCurrentTopics}
                     />
 
+                    <TouchableOpacity
+                        style={[styles.aiButton, aiLoading && styles.disabledButton]}
+                        onPress={handleAiGenerate}
+                        disabled={aiLoading}
+                    >
+                        {aiLoading ? (
+                            <ActivityIndicator size="small" color="#FFF" />
+                        ) : (
+                            <>
+                                <Feather name="zap" size={16} color="#FFF" />
+                                <Text style={styles.aiButtonText}>Auto-Generate Topics with AI</Text>
+                            </>
+                        )}
+                    </TouchableOpacity>
+
                     <TouchableOpacity style={styles.addSubjectButton} onPress={handleAddSubject}>
                         <Text style={styles.addSubjectText}>+ Add to List</Text>
                     </TouchableOpacity>
@@ -230,6 +274,35 @@ const SetupScreen = () => {
                     </View>
                 </View>
             </ScrollView>
+
+            {/* Energy Profile Section */}
+            <View style={styles.energySection}>
+                <Text style={styles.sectionTitle}>When is your peak energy?</Text>
+                <View style={styles.energyOptions}>
+                    {(['morning', 'afternoon', 'evening'] as const).map((time) => (
+                        <TouchableOpacity
+                            key={time}
+                            style={[
+                                styles.energyOption,
+                                peakEnergy === time && styles.energyOptionSelected
+                            ]}
+                            onPress={() => setPeakEnergy(time)}
+                        >
+                            <Feather
+                                name={time === 'morning' ? 'sun' : time === 'afternoon' ? 'briefcase' : 'moon'}
+                                size={20}
+                                color={peakEnergy === time ? '#FFF' : '#9D96E1'}
+                            />
+                            <Text style={[
+                                styles.energyText,
+                                peakEnergy === time && styles.energyTextSelected
+                            ]}>
+                                {time.charAt(0).toUpperCase() + time.slice(1)}
+                            </Text>
+                        </TouchableOpacity>
+                    ))}
+                </View>
+            </View>
 
             <TouchableOpacity
                 style={styles.nextButton}
@@ -325,6 +398,23 @@ const styles = StyleSheet.create({
         color: '#00ACC1',
         fontWeight: '700',
     },
+    aiButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 12,
+        backgroundColor: '#9D96E1',
+        borderRadius: 16,
+        gap: 8,
+    },
+    aiButtonText: {
+        color: '#FFF',
+        fontWeight: '600',
+        fontSize: 12,
+    },
+    disabledButton: {
+        opacity: 0.6,
+    },
     subjectCard: {
         backgroundColor: '#fff',
         padding: 16,
@@ -390,5 +480,36 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: '700',
         fontSize: 16,
+    },
+    energySection: {
+        marginTop: 16,
+        marginBottom: 16,
+    },
+    energyOptions: {
+        flexDirection: 'row',
+        gap: 12,
+        justifyContent: 'center',
+    },
+    energyOption: {
+        flex: 1,
+        padding: 12,
+        borderRadius: 16,
+        backgroundColor: '#FFF',
+        borderWidth: 1,
+        borderColor: '#E0F2FE',
+        alignItems: 'center',
+        gap: 8,
+    },
+    energyOptionSelected: {
+        backgroundColor: '#9D96E1',
+        borderColor: '#9D96E1',
+    },
+    energyText: {
+        fontSize: 12,
+        color: '#5C5C8E',
+        fontWeight: '600',
+    },
+    energyTextSelected: {
+        color: '#FFF',
     },
 });

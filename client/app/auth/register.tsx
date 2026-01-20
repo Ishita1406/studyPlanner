@@ -31,16 +31,13 @@ const RegisterScreen = () => {
         }
 
         if (password !== confirmPassword) {
-            console.log("Passwords do not match");
             Alert.alert('Error', 'Passwords do not match');
             return;
         }
 
         setLoading(true);
         try {
-            console.log("Calling auth.register with", name, email);
             await register(name, email, password);
-            console.log("Registration successful");
 
             // Web Alert callback fix: Navigate immediately or use window.alert
             if (Platform.OS === 'web') {
