@@ -26,6 +26,7 @@ import { createTopic } from '@/api/topic';
 interface TopicItem {
   name: string;
   estimatedMinutes: number;
+  difficultyScore: number;
 }
 
 interface SubjectItem {
@@ -34,6 +35,7 @@ interface SubjectItem {
   importanceLevel: number;
   topics: TopicItem[];
 }
+const PLACEHOLDER_COLOR = '#B8B8C7'; // soft light grey
 
 /* ---------------- COMPONENT ---------------- */
 
@@ -57,6 +59,7 @@ const SetupScreen = () => {
   /* ---------- Topics ---------- */
   const [currentTopic, setCurrentTopic] = useState('');
   const [currentMinutes, setCurrentMinutes] = useState('60');
+  const [currentDifficulty, setCurrentDifficulty] = useState(0.5);
 
   /* ---------------- EFFECT ---------------- */
 
@@ -68,12 +71,6 @@ const SetupScreen = () => {
           setExistingProfile(profile);
           if (profile.maxDailyMinutes) {
             setDailyHours((profile.maxDailyMinutes / 60).toString());
-          }
-          if (profile.energyProfile?.length) {
-            const hour = profile.energyProfile[0].hour;
-            if (hour === 9) setPeakEnergy('morning');
-            else if (hour === 14) setPeakEnergy('afternoon');
-            else if (hour === 20) setPeakEnergy('evening');
           }
         }
       } catch (err: any) {
@@ -116,9 +113,9 @@ const SetupScreen = () => {
   };
 
   const removeSubject = (index: number) => {
-    const copy = [...subjects];
-    copy.splice(index, 1);
-    setSubjects(copy);
+    const updated = [...subjects];
+    updated.splice(index, 1);
+    setSubjects(updated);
   };
 
   /* ---------------- TOPIC HANDLERS ---------------- */
@@ -133,11 +130,15 @@ const SetupScreen = () => {
     updated[subjectIndex].topics.push({
       name: currentTopic.trim(),
       estimatedMinutes: Number(currentMinutes) || 60,
+      difficultyScore: currentDifficulty,
     });
 
     setSubjects(updated);
     setCurrentTopic('');
     setCurrentMinutes('60');
+    setCurrentDifficulty(0.5);
+    console.log();
+
   };
 
   const removeTopic = (sIdx: number, tIdx: number) => {
@@ -154,6 +155,17 @@ const SetupScreen = () => {
       return;
     }
 
+    if (currentTopic.trim()) {
+      showAlert('Unsaved Topic', 'You have typed a topic but not added it. Please click "Add Topic" or clear the field.');
+      return;
+    }
+
+    const totalTopics = subjects.reduce((acc, sub) => acc + sub.topics.length, 0);
+    if (totalTopics === 0) {
+      showAlert('No Topics', 'Please add at least one topic to your subjects so we can generate a plan.');
+      return;
+    }
+
     setLoading(true);
 
     try {
@@ -162,16 +174,16 @@ const SetupScreen = () => {
         maxDailyMinutes: Number(dailyHours) * 60,
         energyProfile: peakEnergy
           ? [
-              {
-                hour:
-                  peakEnergy === 'morning'
-                    ? 9
-                    : peakEnergy === 'afternoon'
+            {
+              hour:
+                peakEnergy === 'morning'
+                  ? 9
+                  : peakEnergy === 'afternoon'
                     ? 14
                     : 20,
-                energy: 100,
-              },
-            ]
+              energy: 100,
+            },
+          ]
           : [],
       };
 
@@ -183,17 +195,24 @@ const SetupScreen = () => {
       for (const subject of subjects) {
         const createdSubject = await createSubject({
           name: subject.name,
-          examDate: subject.examDate,
+          examDate: subject.examDate || undefined,
           importanceLevel: subject.importanceLevel,
         });
+
+        console.log(subject);
+
 
         for (const topic of subject.topics) {
           await createTopic({
             subject: createdSubject._id,
             name: topic.name,
             estimatedMinutes: topic.estimatedMinutes,
+            difficultyScore: topic.difficultyScore,
           });
         }
+
+
+
       }
 
       /* 3️⃣ PLAN */
@@ -201,7 +220,7 @@ const SetupScreen = () => {
 
       showAlert('Success', 'Study plan ready!');
       router.replace('/(tabs)');
-    } catch (err: any) {
+    } catch (err) {
       console.error(err);
       showAlert('Error', 'Failed to save setup');
     } finally {
@@ -223,9 +242,10 @@ const SetupScreen = () => {
     <MobileCard title="Setup Syllabus" backgroundColor="#F0F7FF">
       <ScrollView contentContainerStyle={styles.space}>
         {/* DAILY TIME */}
-        <Text style={styles.title}>Daily Study Hours</Text>
         <TextInput
           style={styles.input}
+          placeholder="Daily Study Hours"
+          placeholderTextColor={PLACEHOLDER_COLOR}
           value={dailyHours}
           onChangeText={setDailyHours}
           keyboardType="numeric"
@@ -241,6 +261,28 @@ const SetupScreen = () => {
               </TouchableOpacity>
             </View>
 
+            {/* IMPORTANCE */}
+            <View style={styles.importanceRow}>
+              <Text style={styles.label}>Importance</Text>
+              <View style={styles.importanceLevels}>
+                {[1, 2, 3, 4, 5].map(level => (
+                  <TouchableOpacity
+                    key={level}
+                    onPress={() => {
+                      const updated = [...subjects];
+                      updated[sIdx].importanceLevel = level;
+                      setSubjects(updated);
+                    }}
+                    style={[
+                      styles.importanceDot,
+                      subject.importanceLevel >= level &&
+                      styles.importanceActive,
+                    ]}
+                  />
+                ))}
+              </View>
+            </View>
+
             {subject.examDate && (
               <Text style={styles.exam}>Exam: {subject.examDate}</Text>
             )}
@@ -249,7 +291,8 @@ const SetupScreen = () => {
             {subject.topics.map((t, tIdx) => (
               <View key={tIdx} style={styles.topicRow}>
                 <Text style={styles.topicText}>
-                  {t.name} · {t.estimatedMinutes}m
+                  {t.name} · {t.estimatedMinutes}m ·{' '}
+                  {(t.difficultyScore * 100).toFixed(0)}%
                 </Text>
                 <TouchableOpacity
                   onPress={() => removeTopic(sIdx, tIdx)}
@@ -263,27 +306,54 @@ const SetupScreen = () => {
             <View style={styles.topicInputRow}>
               <TextInput
                 placeholder="Topic"
+                placeholderTextColor={PLACEHOLDER_COLOR}
                 value={currentTopic}
                 onChangeText={setCurrentTopic}
                 style={styles.topicInput}
               />
               <TextInput
                 placeholder="Min"
+                placeholderTextColor={PLACEHOLDER_COLOR}
                 value={currentMinutes}
                 onChangeText={setCurrentMinutes}
                 keyboardType="numeric"
                 style={styles.minutesInput}
               />
-              <TouchableOpacity onPress={() => addTopic(sIdx)}>
-                <Feather name="plus" size={18} color="#9D96E1" />
-              </TouchableOpacity>
             </View>
+
+            <View style={styles.difficultyRow}>
+              <Text style={styles.label}>
+                Difficulty {(currentDifficulty * 100).toFixed(0)}%
+              </Text>
+              <View style={styles.difficultyBar}>
+                {[0.2, 0.4, 0.6, 0.8, 1].map(val => (
+                  <TouchableOpacity
+                    key={val}
+                    onPress={() => setCurrentDifficulty(val)}
+                    style={[
+                      styles.difficultySegment,
+                      currentDifficulty >= val &&
+                      styles.difficultyActive,
+                    ]}
+                  />
+                ))}
+              </View>
+            </View>
+
+            <TouchableOpacity
+              style={styles.addTopicBtn}
+              onPress={() => addTopic(sIdx)}
+            >
+              <Feather name="plus" size={16} color="#9D96E1" />
+              <Text style={styles.addTopicText}>Add Topic</Text>
+            </TouchableOpacity>
           </View>
         ))}
 
         {/* ADD SUBJECT */}
         <TextInput
           placeholder="New subject"
+          placeholderTextColor={PLACEHOLDER_COLOR}
           value={currentSubject}
           onChangeText={setCurrentSubject}
           style={styles.input}
@@ -339,37 +409,85 @@ export default SetupScreen;
 const styles = StyleSheet.create({
   loader: { flex: 1, justifyContent: 'center' },
   space: { padding: 16, gap: 12 },
-  title: { textAlign: 'center', fontWeight: '700' },
+
   input: {
     backgroundColor: '#fff',
     padding: 14,
     borderRadius: 14,
   },
+
   subjectCard: {
     backgroundColor: '#fff',
     padding: 14,
     borderRadius: 16,
+    gap: 10,
   },
+
   subjectHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+
   subjectTitle: { fontWeight: '700', color: '#5C5C8E' },
+
   exam: { fontSize: 12, color: '#F8A4B3' },
+
+  importanceRow: {},
+  importanceLevels: {
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 4,
+  },
+  importanceDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: '#DDD',
+  },
+  importanceActive: {
+    backgroundColor: '#9D96E1',
+  },
+
   topicRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 6,
   },
   topicText: { fontSize: 12 },
+
   topicInputRow: {
     flexDirection: 'row',
     gap: 8,
-    alignItems: 'center',
-    marginTop: 8,
   },
   topicInput: { flex: 1, backgroundColor: '#F7F7FF', padding: 8 },
-  minutesInput: { width: 50, backgroundColor: '#F7F7FF', padding: 8 },
+  minutesInput: { width: 60, backgroundColor: '#F7F7FF', padding: 8 },
+
+  difficultyRow: {},
+  difficultyBar: {
+    flexDirection: 'row',
+    gap: 6,
+    marginTop: 4,
+  },
+  difficultySegment: {
+    height: 6,
+    width: 24,
+    borderRadius: 4,
+    backgroundColor: '#EEE',
+  },
+  difficultyActive: {
+    backgroundColor: '#F8A4B3',
+  },
+
+  addTopicBtn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 6,
+  },
+  addTopicText: {
+    color: '#9D96E1',
+    fontWeight: '600',
+  },
+
   addBtn: {
     alignItems: 'center',
     padding: 12,
@@ -377,6 +495,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   addText: { fontWeight: '700', color: '#00ACC1' },
+
   dateBtn: {
     flexDirection: 'row',
     gap: 8,
@@ -384,6 +503,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F9FF',
     borderRadius: 14,
   },
+
   saveBtn: {
     backgroundColor: '#9D96E1',
     padding: 16,
@@ -391,5 +511,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   saveText: { color: '#fff', fontWeight: '700' },
+
   modal: { flex: 1, justifyContent: 'center' },
+
+  label: {
+    fontSize: 12,
+    color: '#666',
+  },
 });

@@ -10,7 +10,12 @@ export const createTopic = async (data: {
   difficultyScore?: number;
 }) => {
   try {
-    const response = await client.post('/topic/create', data);
+    // Controller expects subjectId, not subject
+    const payload = {
+      ...data,
+      subjectId: data.subject,
+    };
+    const response = await client.post('/topics', payload);
     return response.data.topic;
   } catch (error: any) {
     throw error.response?.data?.message || 'Failed to create topic';
@@ -22,7 +27,9 @@ export const createTopic = async (data: {
  */
 export const getTopicsBySubject = async (subjectId: string) => {
   try {
-    const response = await client.get(`/topic/bySubject/${subjectId}`);
+    const response = await client.get('/topics', {
+      params: { subjectId }
+    });
     return response.data.topics;
   } catch (error: any) {
     throw error.response?.data?.message || 'Failed to fetch topics';
@@ -43,7 +50,7 @@ export const updateTopic = async (
   }
 ) => {
   try {
-    const response = await client.put(`/topic/update/${topicId}`, data);
+    const response = await client.put(`/topics/${topicId}`, data);
     return response.data.topic;
   } catch (error: any) {
     throw error.response?.data?.message || 'Failed to update topic';
@@ -55,7 +62,7 @@ export const updateTopic = async (
  */
 export const deleteTopic = async (topicId: string) => {
   try {
-    const response = await client.delete(`/topic/delete/${topicId}`);
+    const response = await client.delete(`/topics/${topicId}`);
     return response.data;
   } catch (error: any) {
     throw error.response?.data?.message || 'Failed to delete topic';

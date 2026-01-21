@@ -26,7 +26,7 @@ const TodaysPlanScreen = () => {
     setLoading(true);
     try {
       const response = await getTodayPlan();
-      setPlan(response.plan); // ✅ FIX
+      setPlan(response);
     } catch (error: any) {
       if (error?.response?.status !== 404) {
         Alert.alert("Error", "Failed to load today's plan");
@@ -72,7 +72,13 @@ const TodaysPlanScreen = () => {
     setRecalibrating(true);
     try {
       const response = await regeneratePlan();
-      setPlan(response.plan); // ✅ FIX
+
+      if (!response) {
+        Alert.alert("No Topics", "There are no topics left to study for this subject!");
+        return;
+      }
+
+      setPlan(response);
       Alert.alert("Success", "Plan recalibrated for today!");
     } catch (error) {
       Alert.alert("Error", "Failed to recalibrate plan");
@@ -82,17 +88,23 @@ const TodaysPlanScreen = () => {
   };
 
   const handleGeneratePlan = async () => {
-  setLoading(true);
-  try {
-    const plan = await regeneratePlan(); // ✅ USE THIS
-    setPlan(plan);
-    Alert.alert("Success", "Study plan generated for today!");
-  } catch (error) {
-    Alert.alert("Error", "Failed to generate today's plan");
-  } finally {
-    setLoading(false);
-  }
-};
+    setLoading(true);
+    try {
+      const plan = await regeneratePlan();
+
+      if (!plan) {
+        Alert.alert("No Topics", "There are no pending topics to generate a plan for!");
+        return;
+      }
+
+      setPlan(plan);
+      Alert.alert("Success", "Study plan generated for today!");
+    } catch (error) {
+      Alert.alert("Error", "Failed to generate today's plan");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   /* ---------------- UI ---------------- */
 

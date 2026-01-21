@@ -34,8 +34,9 @@ export const regeneratePlan = async () => {
   const res = await client.post('/study-plan/regenerate');
 
   // Backend returns: { message, plan }
+  // If no plan (e.g. no topics), return null instead of throwing
   if (!res.data?.plan) {
-    throw new Error('No regenerated plan returned');
+    return null;
   }
 
   return res.data.plan;
@@ -46,15 +47,18 @@ export const regeneratePlan = async () => {
 ----------------------------------- */
 
 export const getPlanByDate = async (date: string) => {
-  const res = await client.get('/study-plan/by-date', {
-    params: { date },
-  });
+  try {
+    const res = await client.get('/study-plan/by-date', {
+      params: { date },
+    });
 
-  if (!res.data?.plan) {
-    throw new Error('Plan not found for date');
+    return res.data.plan;
+  } catch (error: any) {
+    if (error?.response?.status === 404) {
+      return null; // ✅ NORMAL: no plan for this date
+    }
+    throw error; // ❌ real errors only
   }
-
-  return res.data.plan;
 };
 
 export const getDatesWithPlans = async () => {

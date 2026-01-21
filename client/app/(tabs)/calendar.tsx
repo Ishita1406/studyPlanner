@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useFocusEffect } from 'expo-router';
 import {
   View,
   Text,
@@ -10,6 +11,7 @@ import MobileCard from '../components/MobileCard';
 import { Calendar } from 'react-native-calendars';
 import type { DateData } from 'react-native-calendars';
 import { getPlanByDate, getDatesWithPlans } from '../../api/studyPlan';
+import { getSubjects } from '../../api/subject';
 
 const StudyCalendarScreen = () => {
   const today = new Date().toISOString().split('T')[0];
@@ -21,14 +23,54 @@ const StudyCalendarScreen = () => {
 
   /* ---------------- LOAD MARKED DATES ---------------- */
 
+
+
+  const [subjects, setSubjects] = useState<any[]>([]);
+
+  /* ---------------- LOAD MARKED DATES ---------------- */
+
   const loadMarkedDates = async () => {
     try {
       const dates = await getDatesWithPlans();
+      const fetchedSubjects = await getSubjects();
+      setSubjects(fetchedSubjects);
 
-      const markings = dates.reduce((acc: any, date: string) => {
-        acc[date] = { marked: true, dotColor: '#67C7A6' };
-        return acc;
-      }, {});
+      const markings: any = {};
+
+      // 1. Mark Plan Dates (Green Dot)
+      dates.forEach((date: string) => {
+        markings[date] = {
+          marked: true,
+          dotColor: '#67C7A6', // Green for study plan
+          details: { hasPlan: true }
+        };
+      });
+
+      // 2. Mark Exam Dates (Red Dot)
+      fetchedSubjects.forEach((sub: any) => {
+        if (sub.examDate) {
+          const date = sub.examDate.split('T')[0];
+
+          if (markings[date]) {
+            // If both exist, maybe show a different color or multiple dots?
+            // For now, let's prioritize Exam color or just keep it marked.
+            // react-native-calendars supports `dots: []` for multiple dots if we use checking specific marking type
+            // sticking to simple dot for now, overriding with Red if it's an exam.
+            markings[date] = {
+              ...markings[date],
+              marked: true,
+              dotColor: '#F8A4B3', // Red/Pink for Exam
+              details: { ...markings[date].details, hasExam: true, examSubject: sub.name }
+            };
+          } else {
+            markings[date] = {
+              marked: true,
+              dotColor: '#F8A4B3',
+              details: { hasExam: true, examSubject: sub.name }
+            };
+          }
+        }
+      });
 
       setMarkedDates(markings);
     } catch (error) {
@@ -39,22 +81,26 @@ const StudyCalendarScreen = () => {
   /* ---------------- FETCH PLAN ---------------- */
 
   const fetchPlanForDate = async (date: string) => {
+    // Check if we have any data (Plan OR Exam) for this date
+    const dateData = markedDates[date];
+
+    if (!dateData) {
+      setPlan(null);
+      return;
+    }
+
     setLoading(true);
     try {
-      const plan = await getPlanByDate(date);
-      setPlan(plan);
-
-      // 🔥 ensure date is marked
-      setMarkedDates(prev => ({
-        ...prev,
-        [date]: { marked: true, dotColor: '#67C7A6' },
-      }));
-    } catch (error: any) {
-      if (error?.response?.status === 404) {
-        setPlan(null);
+      // If we have a plan, fetch it
+      if (dateData.details?.hasPlan) {
+        const plan = await getPlanByDate(date);
+        setPlan(plan);
       } else {
-        console.error(error);
+        // No plan, but maybe an exam?
+        setPlan(null);
       }
+    } catch (error) {
+      console.error('Unexpected error fetching plan:', error);
     } finally {
       setLoading(false);
     }
@@ -62,14 +108,16 @@ const StudyCalendarScreen = () => {
 
   /* ---------------- EFFECTS ---------------- */
 
-  useEffect(() => {
-    loadMarkedDates();
-    fetchPlanForDate(today);
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      loadMarkedDates();
+    }, [])
+  );
 
   useEffect(() => {
+    // Only fetch if markedDates is populated (or empty if loaded)
     fetchPlanForDate(selectedDate);
-  }, [selectedDate]);
+  }, [selectedDate, markedDates]);
 
   /* ---------------- UI ---------------- */
 
@@ -116,9 +164,19 @@ const StudyCalendarScreen = () => {
           </View>
         ) : (
           <View style={styles.emptyState}>
-            <Text style={styles.emptyText}>
-              No study plan generated for this date.
-            </Text>
+            {markedDates[selectedDate]?.details?.hasExam ? (
+              <View style={{ alignItems: 'center', gap: 8 }}>
+                <Feather name="flag" size={32} color="#F8A4B3" />
+                <Text style={[styles.emptyText, { color: '#F8A4B3' }]}>
+                  Exam Day: {markedDates[selectedDate].details.examSubject}
+                </Text>
+                <Text style={styles.emptySubtext}>Good luck! No study tasks scheduled today.</Text>
+              </View>
+            ) : (
+              <Text style={styles.emptyText}>
+                No study plan generated for this date.
+              </Text>
+            )}
           </View>
         )}
       </View>
@@ -171,5 +229,11 @@ const styles = StyleSheet.create({
   emptyText: {
     color: '#A0A0C0',
     fontStyle: 'italic',
+  },
+  emptySubtext: {
+    fontSize: 12,
+    color: '#A0A0C0',
+    marginTop: 4,
+    textAlign: 'center',
   },
 });
