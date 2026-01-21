@@ -8,13 +8,21 @@ export const getTodayPlan = async (req, res) => {
 
     const today = new Date().toISOString().split("T")[0];
 
-    const plan = await DailyStudyPlan.findOne({
+    let plan = await DailyStudyPlan.findOne({
       user: userId,
       date: today,
     }).populate("tasks.topic", "name subject");
 
+    // 🧠 Auto-generate if missing
     if (!plan) {
-      return res.status(404).json({ message: "No plan found for today" });
+      const newPlan = await generateDailyPlan(userId);
+      if (!newPlan) {
+        return res.status(404).json({ message: "No plan available" });
+      }
+
+      plan = await DailyStudyPlan
+        .findById(newPlan._id)
+        .populate("tasks.topic", "name subject");
     }
 
     return res.status(200).json({ plan });
@@ -23,6 +31,7 @@ export const getTodayPlan = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
 
 
 export const getPlanByDate = async (req, res) => {
@@ -53,22 +62,32 @@ export const getPlanByDate = async (req, res) => {
 export const regeneratePlan = async (req, res) => {
   try {
     const userId = req.user?.sub;
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
-    if (!userId) {
-      return res.status(401).json({ message: "Unauthorized" });
-    }
+    const today = new Date().toISOString().split("T")[0];
 
+    // 🔥 DELETE TODAY'S PLAN
+    await DailyStudyPlan.deleteOne({
+      user: userId,
+      date: today,
+    });
+
+    // 🔁 Generate fresh plan
     const plan = await generateDailyPlan(userId);
 
     if (!plan) {
-      return res.status(200).json({ message: "No pending topics to schedule.", plan: null });
+      return res.status(200).json({
+        message: "No pending topics to schedule.",
+        plan: null,
+      });
     }
 
-    // Populate for response
-    const populatedPlan = await DailyStudyPlan.findById(plan._id).populate("tasks.topic", "name subject");
+    const populatedPlan = await DailyStudyPlan
+      .findById(plan._id)
+      .populate("tasks.topic", "name subject");
 
     return res.status(200).json({
-      message: "Study plan generated successfully",
+      message: "Study plan regenerated successfully",
       plan: populatedPlan,
     });
   } catch (error) {
@@ -76,3 +95,4 @@ export const regeneratePlan = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+

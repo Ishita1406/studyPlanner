@@ -1,35 +1,58 @@
-import client from './client';
+import client from './client'; // adjust path if needed
+
+/* ----------------------------------
+   GET TODAY'S PLAN
+----------------------------------- */
 
 export const getTodayPlan = async () => {
-    try {
-        const response = await client.get('/study-plan/today');
-        return response.data.plan;
-    } catch (error: any) {
-        // 404 means no plan for today, which might be valid UI state (empty)
-        if (error.response?.status === 404) {
-            return null;
-        }
-        throw error.response?.data?.message || 'Failed to fetch today\'s plan';
-    }
+  const res = await client.get('/study-plan/today');
+
+  // Backend returns: { plan }
+  if (!res.data?.plan) {
+    throw new Error('No plan returned');
+  }
+
+  return res.data.plan;
 };
 
-export const getPlanByDate = async (date: string) => {
-    try {
-        const response = await client.get('/study-plan', { params: { date } });
-        return response.data.plan;
-    } catch (error: any) {
-        if (error.response?.status === 404) {
-            return null;
-        }
-        throw error.response?.data?.message || 'Failed to fetch plan for date';
-    }
+/* ----------------------------------
+   GENERATE PLAN (FIRST TIME)
+----------------------------------- */
+
+export const generatePlan = async () => {
+  const res = await client.post('/study-plan/generate');
+
+  // Some endpoints may only return message
+  return res.data;
 };
+
+/* ----------------------------------
+   REGENERATE / SKIP DAY
+----------------------------------- */
 
 export const regeneratePlan = async () => {
-    try {
-        const response = await client.post('/study-plan/regenerate');
-        return response.data.plan;
-    } catch (error: any) {
-        throw error.response?.data?.message || 'Failed to regenerate plan';
-    }
+  const res = await client.post('/study-plan/regenerate');
+
+  // Backend returns: { message, plan }
+  if (!res.data?.plan) {
+    throw new Error('No regenerated plan returned');
+  }
+
+  return res.data.plan;
+};
+
+/* ----------------------------------
+   GET PLAN BY DATE (OPTIONAL)
+----------------------------------- */
+
+export const getPlanByDate = async (date: string) => {
+  const res = await client.get('/study-plan/by-date', {
+    params: { date },
+  });
+
+  if (!res.data?.plan) {
+    throw new Error('Plan not found for date');
+  }
+
+  return res.data.plan;
 };

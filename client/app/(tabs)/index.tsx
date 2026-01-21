@@ -1,270 +1,261 @@
 import React, { useEffect, useState } from 'react';
 import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    ActivityIndicator,
-    ScrollView,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+  ScrollView,
+  Alert,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
 import { useRouter } from 'expo-router';
-import { getTodayPlan, regeneratePlan } from '../../api/studyPlan';
+import { getTodayPlan, regeneratePlan, generatePlan } from '../../api/studyPlan';
 
 const TodaysPlanScreen = () => {
-    const [plan, setPlan] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
-    const [recalibrating, setRecalibrating] = useState(false);
+  const [plan, setPlan] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [recalibrating, setRecalibrating] = useState(false);
 
-    const fetchPlan = async () => {
-        setLoading(true);
-        try {
-            const data = await getTodayPlan();
-            setPlan(data);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            setLoading(false);
-        }
-    };
+  const router = useRouter();
 
-    useEffect(() => {
-        fetchPlan();
-    }, []);
+  /* ---------------- FETCH PLAN ---------------- */
 
-    const formatDate = (dateString?: string) => {
-        if (!dateString) return new Date().toDateString();
-        return new Date(dateString).toDateString();
-    };
+  const fetchPlan = async () => {
+    setLoading(true);
+    try {
+      const response = await getTodayPlan();
+      setPlan(response.plan); // ✅ FIX
+    } catch (error: any) {
+      if (error?.response?.status !== 404) {
+        Alert.alert("Error", "Failed to load today's plan");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const router = useRouter();
+  useEffect(() => {
+    fetchPlan();
+  }, []);
 
-    const handleStartStudying = () => {
-        if (!plan || !plan.tasks || plan.tasks.length === 0) {
-            // Ideally show a toast or alert
-            return;
-        }
-        // Start the first task
-        const firstTask = plan.tasks[0];
-        router.push({
-            pathname: '/(tabs)/study-session',
-            params: {
-                topicId: firstTask.topic._id,
-                topicName: firstTask.topic.name,
-                subjectName: firstTask.topic.subject?.name || firstTask.topic.subject // Handle populated or not
-            }
-        });
-    };
+  /* ---------------- HELPERS ---------------- */
 
-    const handleSkipDay = async () => {
-        setRecalibrating(true);
-        try {
-            const newPlan = await regeneratePlan();
-            setPlan(newPlan);
-        } catch (error) {
-            console.error("Failed to recalibrate:", error);
-        } finally {
-            setRecalibrating(false);
-        }
-    };
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return new Date().toDateString();
+    return new Date(dateString).toDateString();
+  };
 
-    return (
-        <MobileCard
-            title="Today's Plan"
-            backgroundColor="#F8F9FF"
-            headerRight={<Feather name="settings" size={20} color="#9D96E1" />}
-        >
-            <View style={styles.dateContainer}>
-                <Feather name="calendar" size={12} color="#9D96E1" />
-                <Text style={styles.dateText}>{formatDate(plan?.date)}</Text>
-                <Text style={styles.separator}>|</Text>
-                <TouchableOpacity style={styles.adaptiveButton} onPress={fetchPlan}>
-                    <Text style={styles.adaptiveText}>Refresh</Text>
-                    <Feather name="refresh-cw" size={12} color="#9D96E1" />
-                </TouchableOpacity>
+  /* ---------------- ACTIONS ---------------- */
+
+  const handleStartStudying = () => {
+    if (!plan?.tasks?.length) {
+      Alert.alert("No Tasks", "Please generate a study plan first");
+      return;
+    }
+
+    const firstTask = plan.tasks[0];
+
+    router.push({
+      pathname: '/(tabs)/study-session',
+      params: {
+        topicId: firstTask.topic._id,
+        topicName: firstTask.topic.name,
+        subjectName:
+          firstTask.topic.subject?.name || firstTask.topic.subject,
+      },
+    });
+  };
+
+  const handleSkipDay = async () => {
+    setRecalibrating(true);
+    try {
+      const response = await regeneratePlan();
+      setPlan(response.plan); // ✅ FIX
+      Alert.alert("Success", "Plan recalibrated for today!");
+    } catch (error) {
+      Alert.alert("Error", "Failed to recalibrate plan");
+    } finally {
+      setRecalibrating(false);
+    }
+  };
+
+  const handleGeneratePlan = async () => {
+  setLoading(true);
+  try {
+    const plan = await regeneratePlan(); // ✅ USE THIS
+    setPlan(plan);
+    Alert.alert("Success", "Study plan generated for today!");
+  } catch (error) {
+    Alert.alert("Error", "Failed to generate today's plan");
+  } finally {
+    setLoading(false);
+  }
+};
+
+  /* ---------------- UI ---------------- */
+
+  return (
+    <MobileCard
+      title="Today's Plan"
+      backgroundColor="#F8F9FF"
+      headerRight={
+        <TouchableOpacity onPress={fetchPlan}>
+          <Feather name="refresh-cw" size={20} color="#9D96E1" />
+        </TouchableOpacity>
+      }
+    >
+      <View style={styles.dateContainer}>
+        <Feather name="calendar" size={12} color="#9D96E1" />
+        <Text style={styles.dateText}>{formatDate(plan?.date)}</Text>
+        <Text style={styles.separator}>|</Text>
+        <TouchableOpacity style={styles.adaptiveButton} onPress={fetchPlan}>
+          <Text style={styles.adaptiveText}>Refresh</Text>
+          <Feather name="refresh-cw" size={12} color="#9D96E1" />
+        </TouchableOpacity>
+      </View>
+
+      {loading ? (
+        <ActivityIndicator size="large" color="#9D96E1" />
+      ) : recalibrating ? (
+        <View style={styles.recalibratingContainer}>
+          <ActivityIndicator size="large" color="#F8A4B3" />
+          <Text style={styles.recalibratingText}>AI Recalibrating...</Text>
+          <Text style={styles.recalibratingSubtext}>
+            Adjusting for missed time
+          </Text>
+        </View>
+      ) : !plan?.tasks?.length ? (
+        <View style={styles.emptyState}>
+          <Feather name="calendar" size={48} color="#D0D0E0" />
+          <Text style={styles.emptyText}>No plan generated for today.</Text>
+          <Text style={styles.emptySubtext}>
+            Create a syllabus first, then generate a study plan.
+          </Text>
+
+          <TouchableOpacity
+            style={styles.generateButton}
+            onPress={handleGeneratePlan}
+          >
+            <Feather name="zap" size={16} color="#fff" />
+            <Text style={styles.generateButtonText}>
+              Generate Today's Plan
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.secondaryButton}
+            onPress={() => router.push('/(tabs)/setup')}
+          >
+            <Text style={styles.secondaryButtonText}>
+              Go to Syllabus Setup
+            </Text>
+          </TouchableOpacity>
+        </View>
+      ) : (
+        <ScrollView contentContainerStyle={styles.spaceY4}>
+          <View style={styles.statsContainer}>
+            <Text style={styles.statText}>
+              {plan.tasks.length} Tasks • {plan.totalMinutes || 0} min
+            </Text>
+          </View>
+
+          {plan.tasks.map((item: any, index: number) => (
+            <View key={item._id || index} style={styles.taskCard}>
+              <Text style={styles.taskTitle}>
+                {index + 1}. {item.topic?.name}
+              </Text>
+              <Text style={styles.taskMeta}>
+                {item.plannedMinutes}m
+              </Text>
             </View>
+          ))}
+        </ScrollView>
+      )}
 
-            {loading ? (
-                <ActivityIndicator size="large" color="#9D96E1" style={{ marginTop: 20 }} />
-            ) : recalibrating ? (
-                <View style={styles.recalibratingContainer}>
-                    <ActivityIndicator size="large" color="#F8A4B3" />
-                    <Text style={styles.recalibratingText}>AI Recalibrating...</Text>
-                    <Text style={styles.recalibratingSubtext}>Adjusting for missed time</Text>
-                </View>
-            ) : !plan || !plan.tasks || plan.tasks.length === 0 ? (
-                <View style={styles.emptyState}>
-                    <Text style={styles.emptyText}>No plan generated for today.</Text>
-                </View>
-            ) : (
-                <ScrollView contentContainerStyle={styles.spaceY4}>
-                    {plan.tasks.map((item: any, index: number) => (
-                        <View key={item._id || index} style={styles.taskCard}>
-                            <View style={styles.taskHeader}>
-                                <Text style={styles.taskTitle}>{index + 1}. {item.topic?.name || 'Topic'}</Text>
-                            </View>
-                            <View style={styles.taskRow}>
-                                <View style={[styles.iconCircle, { backgroundColor: '#E8F8F2' }]}>
-                                    <Feather name="book" size={16} color="#22C55E" />
-                                </View>
-                                <Text style={styles.taskMeta}>
-                                    {item.topic?.subject?.name || item.topic?.subject || 'Subject'} | {item.plannedMinutes}m
-                                </Text>
-                                <View style={styles.priorityCircle}>
-                                    <Text style={styles.priorityText}>{item.priority || 1}</Text>
-                                </View>
-                            </View>
-                        </View>
-                    ))}
-                </ScrollView>
-            )}
+      {plan?.tasks?.length > 0 && (
+        <View style={styles.buttonRow}>
+          <TouchableOpacity
+            style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}
+            onPress={handleStartStudying}
+          >
+            <Feather name="play-circle" size={16} color="#fff" />
+            <Text style={styles.actionText}>Start Studying</Text>
+          </TouchableOpacity>
 
-            <View style={styles.buttonRow}>
-                <TouchableOpacity
-                    style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}
-                    onPress={handleStartStudying}
-                >
-                    <Text style={styles.actionText}>Start Studying</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={[styles.actionButton, { backgroundColor: '#F8A4B3', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }]}
-                    onPress={handleSkipDay}
-                    disabled={recalibrating}
-                >
-                    <Text style={styles.actionText}>Skip Day</Text>
-                    <Feather name="chevron-right" size={16} color="#fff" />
-                </TouchableOpacity>
-            </View>
-        </MobileCard>
-    );
+          <TouchableOpacity
+            style={[styles.actionButton, { backgroundColor: '#F8A4B3' }]}
+            onPress={handleSkipDay}
+            disabled={recalibrating}
+          >
+            <Feather name="skip-forward" size={16} color="#fff" />
+            <Text style={styles.actionText}>Skip Day</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+    </MobileCard>
+  );
 };
 
 export default TodaysPlanScreen;
 
+/* ---------------- STYLES ---------------- */
+
 const styles = StyleSheet.create({
-    dateContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 8,
-        marginBottom: 24,
-    },
-    dateText: {
-        fontSize: 12,
-        fontWeight: '700',
-        color: '#9D96E1',
-    },
-    separator: {
-        color: '#D0D0E0',
-        fontSize: 12,
-    },
-    adaptiveButton: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-    },
-    adaptiveText: {
-        fontSize: 12,
-        fontWeight: '700',
-        color: '#9D96E1',
-    },
-    spaceY4: {
-        gap: 16,
-    },
-    taskCard: {
-        backgroundColor: '#fff',
-        borderRadius: 32,
-        padding: 20,
-        borderWidth: 1,
-        borderColor: '#F0F0F8',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.05,
-        shadowRadius: 2,
-        elevation: 1,
-    },
-    taskHeader: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 12,
-        marginBottom: 8,
-    },
-    taskTitle: {
-        fontWeight: '700',
-        fontSize: 14,
-        color: '#5C5C8E',
-    },
-    taskRow: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    iconCircle: {
-        padding: 8,
-        borderRadius: 12,
-    },
-    taskMeta: {
-        fontSize: 12,
-        color: '#6B7280',
-        flex: 1,
-        marginLeft: 8,
-    },
-    priorityCircle: {
-        width: 24,
-        height: 24,
-        borderRadius: 12,
-        backgroundColor: '#F3F4F6',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    priorityText: {
-        fontSize: 10,
-        fontWeight: '700',
-        color: '#9CA3AF',
-    },
-    buttonRow: {
-        flexDirection: 'row',
-        gap: 16,
-        marginTop: 32,
-    },
-    actionButton: {
-        flex: 1,
-        paddingVertical: 16,
-        borderRadius: 24,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.3,
-        shadowRadius: 16,
-        elevation: 8,
-    },
-    actionText: {
-        color: '#fff',
-        fontWeight: '700',
-        fontSize: 14,
-    },
-    emptyState: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 20,
-    },
-    emptyText: {
-        color: '#A0A0C0',
-        fontSize: 14,
-    },
-    recalibratingContainer: {
-        alignItems: 'center',
-        padding: 32,
-        gap: 12,
-    },
-    recalibratingText: {
-        fontSize: 16,
-        fontWeight: '700',
-        color: '#5C5C8E',
-    },
-    recalibratingSubtext: {
-        fontSize: 12,
-        color: '#A0A0C0',
-    },
+  dateContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginBottom: 24,
+  },
+  dateText: { fontSize: 12, fontWeight: '700', color: '#9D96E1' },
+  separator: { color: '#D0D0E0' },
+  adaptiveButton: { flexDirection: 'row', gap: 4 },
+  adaptiveText: { fontSize: 12, fontWeight: '700', color: '#9D96E1' },
+  spaceY4: { gap: 16 },
+  taskCard: {
+    backgroundColor: '#fff',
+    borderRadius: 24,
+    padding: 16,
+  },
+  taskTitle: { fontWeight: '700', color: '#5C5C8E' },
+  taskMeta: { fontSize: 12, color: '#6B7280' },
+  buttonRow: { flexDirection: 'row', gap: 16, marginTop: 24 },
+  actionButton: {
+    flex: 1,
+    padding: 16,
+    borderRadius: 24,
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 8,
+    justifyContent: 'center',
+  },
+  actionText: { color: '#fff', fontWeight: '700' },
+  emptyState: { alignItems: 'center', marginTop: 20 },
+  emptyText: { fontWeight: '700', color: '#5C5C8E' },
+  emptySubtext: { fontSize: 12, color: '#A0A0C0', textAlign: 'center' },
+  generateButton: {
+    backgroundColor: '#9D96E1',
+    padding: 12,
+    borderRadius: 24,
+    marginTop: 12,
+    flexDirection: 'row',
+    gap: 8,
+  },
+  generateButtonText: { color: '#fff', fontWeight: '700' },
+  secondaryButton: {
+    borderWidth: 1,
+    borderColor: '#9D96E1',
+    padding: 12,
+    borderRadius: 24,
+    marginTop: 12,
+  },
+  secondaryButtonText: { color: '#9D96E1', fontWeight: '600' },
+  recalibratingContainer: { alignItems: 'center', gap: 8 },
+  recalibratingText: { fontWeight: '700', color: '#5C5C8E' },
+  recalibratingSubtext: { fontSize: 12, color: '#A0A0C0' },
+  statsContainer: { alignItems: 'center' },
+  statText: { fontSize: 12, color: '#6B7280' },
 });

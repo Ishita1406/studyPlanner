@@ -9,11 +9,19 @@ const handleSubjects = async (userId, subjects) => {
   for (const subj of subjects) {
     // Find or Create Subject
     let subjectDoc = await Subject.findOne({ user: userId, name: subj.name });
-    if (!subjectDoc) {
+
+    if (subjectDoc) {
+      // Update existing subject if needed (e.g. exam date changed)
+      if (subj.examDate) {
+        subjectDoc.examDate = subj.examDate;
+        await subjectDoc.save();
+      }
+    } else {
       subjectDoc = await Subject.create({
         user: userId,
         name: subj.name,
-        // In future, frontend can pass examDate/importance here
+        examDate: subj.examDate, // Save the exam date
+        importanceLevel: subj.importanceLevel || 3
       });
     }
 
