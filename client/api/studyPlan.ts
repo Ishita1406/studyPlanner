@@ -56,3 +56,9 @@ export const getPlanByDate = async (date: string) => {
 
   return res.data.plan;
 };
+
+export const getDatesWithPlans = async () => {
+  const res = await client.get('/study-plan/dates');
+  return res.data.dates; // ["2026-01-21", ...]
+};
+

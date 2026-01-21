@@ -96,3 +96,23 @@ export const regeneratePlan = async (req, res) => {
   }
 };
 
+export const getDatesWithPlans = async (req, res) => {
+  try {
+    const userId = req.user?.sub;
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
+
+    const plans = await DailyStudyPlan.find(
+      { user: userId },
+      { date: 1, _id: 0 }
+    );
+
+    const dates = plans.map(p => p.date);
+
+    return res.status(200).json({ dates });
+  } catch (error) {
+    console.error("Get dates with plans error:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+
