@@ -21,6 +21,14 @@ const taskSchema = new mongoose.Schema(
       max: 1,
       required: true,
     },
+    completedMinutes: {
+      type: Number,
+      default: 0,
+    },
+    isCompleted: {
+      type: Boolean,
+      default: false,
+    },
   },
   { _id: false }
 );

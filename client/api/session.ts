@@ -3,8 +3,8 @@ import client from './client';
 export const logSession = async (sessionData: {
     topicId: string;
     durationMinutes: number;
-    difficultyRating: number;
-    focusRating: number;
+    difficultyRating?: number;
+    focusRating?: number;
     notes?: string;
 }) => {
     try {

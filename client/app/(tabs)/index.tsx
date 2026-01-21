@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
-import { useRouter } from 'expo-router';
-import { getTodayPlan, regeneratePlan, generatePlan } from '../../api/studyPlan';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { getTodayPlan, regeneratePlan } from '../../api/studyPlan';
 
 const TodaysPlanScreen = () => {
   const [plan, setPlan] = useState<any>(null);
@@ -19,6 +19,7 @@ const TodaysPlanScreen = () => {
   const [recalibrating, setRecalibrating] = useState(false);
 
   const router = useRouter();
+  const params = useLocalSearchParams();
 
   /* ---------------- FETCH PLAN ---------------- */
 
@@ -38,7 +39,7 @@ const TodaysPlanScreen = () => {
 
   useEffect(() => {
     fetchPlan();
-  }, []);
+  }, [params?.refresh]);
 
   /* ---------------- HELPERS ---------------- */
 
@@ -72,15 +73,9 @@ const TodaysPlanScreen = () => {
     setRecalibrating(true);
     try {
       const response = await regeneratePlan();
-
-      if (!response) {
-        Alert.alert("No Topics", "There are no topics left to study for this subject!");
-        return;
-      }
-
       setPlan(response);
       Alert.alert("Success", "Plan recalibrated for today!");
-    } catch (error) {
+    } catch {
       Alert.alert("Error", "Failed to recalibrate plan");
     } finally {
       setRecalibrating(false);
@@ -90,16 +85,10 @@ const TodaysPlanScreen = () => {
   const handleGeneratePlan = async () => {
     setLoading(true);
     try {
-      const plan = await regeneratePlan();
-
-      if (!plan) {
-        Alert.alert("No Topics", "There are no pending topics to generate a plan for!");
-        return;
-      }
-
-      setPlan(plan);
+      const response = await regeneratePlan();
+      setPlan(response);
       Alert.alert("Success", "Study plan generated for today!");
-    } catch (error) {
+    } catch {
       Alert.alert("Error", "Failed to generate today's plan");
     } finally {
       setLoading(false);
@@ -121,90 +110,73 @@ const TodaysPlanScreen = () => {
       <View style={styles.dateContainer}>
         <Feather name="calendar" size={12} color="#9D96E1" />
         <Text style={styles.dateText}>{formatDate(plan?.date)}</Text>
-        <Text style={styles.separator}>|</Text>
-        <TouchableOpacity style={styles.adaptiveButton} onPress={fetchPlan}>
-          <Text style={styles.adaptiveText}>Refresh</Text>
-          <Feather name="refresh-cw" size={12} color="#9D96E1" />
-        </TouchableOpacity>
       </View>
 
       {loading ? (
         <ActivityIndicator size="large" color="#9D96E1" />
-      ) : recalibrating ? (
-        <View style={styles.recalibratingContainer}>
-          <ActivityIndicator size="large" color="#F8A4B3" />
-          <Text style={styles.recalibratingText}>AI Recalibrating...</Text>
-          <Text style={styles.recalibratingSubtext}>
-            Adjusting for missed time
-          </Text>
-        </View>
       ) : !plan?.tasks?.length ? (
         <View style={styles.emptyState}>
-          <Feather name="calendar" size={48} color="#D0D0E0" />
-          <Text style={styles.emptyText}>No plan generated for today.</Text>
-          <Text style={styles.emptySubtext}>
-            Create a syllabus first, then generate a study plan.
-          </Text>
+          <Text style={styles.emptyText}>No plan for today.</Text>
 
           <TouchableOpacity
             style={styles.generateButton}
             onPress={handleGeneratePlan}
           >
-            <Feather name="zap" size={16} color="#fff" />
             <Text style={styles.generateButtonText}>
               Generate Today's Plan
             </Text>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.secondaryButton}
-            onPress={() => router.push('/(tabs)/setup')}
-          >
-            <Text style={styles.secondaryButtonText}>
-              Go to Syllabus Setup
-            </Text>
-          </TouchableOpacity>
         </View>
       ) : (
-        <ScrollView contentContainerStyle={styles.spaceY4}>
-          <View style={styles.statsContainer}>
-            <Text style={styles.statText}>
-              {plan.tasks.length} Tasks • {plan.totalMinutes || 0} min
-            </Text>
-          </View>
+        <ScrollView contentContainerStyle={{ gap: 16 }}>
+          {plan.tasks
+            .filter((item: any) => !item.isCompleted)
+            .map((item: any, index: number) => {
+              const completed = item.completedMinutes || 0;
+              const remaining = Math.max(item.plannedMinutes - completed, 0);
+              const isDone = item.isCompleted;
 
-          {plan.tasks.map((item: any, index: number) => (
-            <View key={item._id || index} style={styles.taskCard}>
-              <Text style={styles.taskTitle}>
-                {index + 1}. {item.topic?.name}
-              </Text>
-              <Text style={styles.taskMeta}>
-                {item.plannedMinutes}m
-              </Text>
-            </View>
-          ))}
+              return (
+                <View
+                  key={item.topic._id}
+                  style={[styles.taskCard, isDone && styles.taskCardDone]}
+                >
+                  <View>
+                    <Text
+                      style={[
+                        styles.taskTitle,
+                        isDone && styles.taskTitleDone,
+                      ]}
+                    >
+                      {index + 1}. {item.topic.name}
+                    </Text>
+                    <Text style={styles.taskMeta}>
+                      {isDone
+                        ? 'Completed'
+                        : `${remaining}m remaining (Goal: ${item.plannedMinutes}m)`}
+                    </Text>
+                  </View>
+
+                  {isDone && (
+                    <Feather
+                      name="check-circle"
+                      size={20}
+                      color="#67C7A6"
+                    />
+                  )}
+                </View>
+              );
+            })}
         </ScrollView>
       )}
 
       {plan?.tasks?.length > 0 && (
-        <View style={styles.buttonRow}>
-          <TouchableOpacity
-            style={[styles.actionButton, { backgroundColor: '#67C7A6' }]}
-            onPress={handleStartStudying}
-          >
-            <Feather name="play-circle" size={16} color="#fff" />
-            <Text style={styles.actionText}>Start Studying</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.actionButton, { backgroundColor: '#F8A4B3' }]}
-            onPress={handleSkipDay}
-            disabled={recalibrating}
-          >
-            <Feather name="skip-forward" size={16} color="#fff" />
-            <Text style={styles.actionText}>Skip Day</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.startButton}
+          onPress={handleStartStudying}
+        >
+          <Text style={styles.startText}>Start Studying</Text>
+        </TouchableOpacity>
       )}
     </MobileCard>
   );
@@ -216,58 +188,62 @@ export default TodaysPlanScreen;
 
 const styles = StyleSheet.create({
   dateContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    marginBottom: 24,
+    marginBottom: 16,
   },
-  dateText: { fontSize: 12, fontWeight: '700', color: '#9D96E1' },
-  separator: { color: '#D0D0E0' },
-  adaptiveButton: { flexDirection: 'row', gap: 4 },
-  adaptiveText: { fontSize: 12, fontWeight: '700', color: '#9D96E1' },
-  spaceY4: { gap: 16 },
+  dateText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#9D96E1',
+  },
   taskCard: {
     backgroundColor: '#fff',
-    borderRadius: 24,
+    borderRadius: 20,
     padding: 16,
   },
-  taskTitle: { fontWeight: '700', color: '#5C5C8E' },
-  taskMeta: { fontSize: 12, color: '#6B7280' },
-  buttonRow: { flexDirection: 'row', gap: 16, marginTop: 24 },
-  actionButton: {
-    flex: 1,
+  taskCardDone: {
+    backgroundColor: '#F0F9F5',
+    opacity: 0.8,
+  },
+  taskTitle: {
+    fontWeight: '700',
+    color: '#5C5C8E',
+  },
+  taskTitleDone: {
+    textDecorationLine: 'line-through',
+    color: '#A0A0C0',
+  },
+  taskMeta: {
+    fontSize: 12,
+    color: '#6B7280',
+  },
+  startButton: {
+    backgroundColor: '#67C7A6',
     padding: 16,
     borderRadius: 24,
     alignItems: 'center',
-    flexDirection: 'row',
-    gap: 8,
-    justifyContent: 'center',
+    marginTop: 16,
   },
-  actionText: { color: '#fff', fontWeight: '700' },
-  emptyState: { alignItems: 'center', marginTop: 20 },
-  emptyText: { fontWeight: '700', color: '#5C5C8E' },
-  emptySubtext: { fontSize: 12, color: '#A0A0C0', textAlign: 'center' },
+  startText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+  emptyState: {
+    alignItems: 'center',
+    marginTop: 32,
+  },
+  emptyText: {
+    fontWeight: '700',
+    color: '#5C5C8E',
+  },
   generateButton: {
+    marginTop: 16,
     backgroundColor: '#9D96E1',
     padding: 12,
     borderRadius: 24,
-    marginTop: 12,
-    flexDirection: 'row',
-    gap: 8,
   },
-  generateButtonText: { color: '#fff', fontWeight: '700' },
-  secondaryButton: {
-    borderWidth: 1,
-    borderColor: '#9D96E1',
-    padding: 12,
-    borderRadius: 24,
-    marginTop: 12,
+  generateButtonText: {
+    color: '#fff',
+    fontWeight: '700',
   },
-  secondaryButtonText: { color: '#9D96E1', fontWeight: '600' },
-  recalibratingContainer: { alignItems: 'center', gap: 8 },
-  recalibratingText: { fontWeight: '700', color: '#5C5C8E' },
-  recalibratingSubtext: { fontSize: 12, color: '#A0A0C0' },
-  statsContainer: { alignItems: 'center' },
-  statText: { fontSize: 12, color: '#6B7280' },
 });
