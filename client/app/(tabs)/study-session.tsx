@@ -93,11 +93,6 @@ const StudySessionScreen = () => {
         <MobileCard
             title="Study Session"
             backgroundColor="#F5F3FF"
-            headerLeft={
-                <TouchableOpacity onPress={handleQuit}>
-                    <Feather name="x" size={24} color="#9D96E1" />
-                </TouchableOpacity>
-            }
         >
             <View style={styles.container}>
                 <Text style={styles.subjectText}>{params.subjectName}</Text>

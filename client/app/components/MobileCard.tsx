@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
     // overflow: 'hidden',
     // borderWidth: 8,
     // borderColor: '#fff',
-    backgroundColor: '#fff'
+    backgroundColor: '#fff',
+    paddingTop: 50,
   },
   header: {
     padding: 24,

@@ -108,7 +108,7 @@ const TodaysPlanScreen = () => {
       }
     >
       <View style={styles.dateContainer}>
-        <Feather name="calendar" size={12} color="#9D96E1" />
+        <Feather name="calendar" size={20} color="#9D96E1" />
         <Text style={styles.dateText}>{formatDate(plan?.date)}</Text>
       </View>
 
@@ -189,10 +189,10 @@ export default TodaysPlanScreen;
 const styles = StyleSheet.create({
   dateContainer: {
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 20,
   },
   dateText: {
-    fontSize: 12,
+    fontSize: 18,
     fontWeight: '700',
     color: '#9D96E1',
   },
