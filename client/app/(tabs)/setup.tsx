@@ -35,6 +35,10 @@ interface SubjectItem {
   examDate?: string;
   importanceLevel: number;
   topics: TopicItem[];
+  // Draft state for adding a new topic to this subject
+  draftTopicName?: string;
+  draftTopicMinutes?: string; // string to handle empty input easily
+  draftTopicDifficulty?: number;
 }
 const PLACEHOLDER_COLOR = '#B8B8C7';
 const ACTIVE_COLOR = '#9D96E1';
@@ -59,11 +63,6 @@ const SetupScreen = () => {
 
   // AI Generation State
   const [isGenerating, setIsGenerating] = useState(false);
-
-  /* ---------- Topics ---------- */
-  const [currentTopic, setCurrentTopic] = useState('');
-  const [currentMinutes, setCurrentMinutes] = useState('');
-  const [currentDifficulty, setCurrentDifficulty] = useState(0.5);
 
   /* ---------------- EFFECT ---------------- */
 
@@ -98,6 +97,14 @@ const SetupScreen = () => {
       : Alert.alert(title, message);
   };
 
+  const updateSubjectDraft = (index: number, field: keyof SubjectItem, value: any) => {
+    setSubjects(prev => {
+      const updated = [...prev];
+      updated[index] = { ...updated[index], [field]: value };
+      return updated;
+    });
+  };
+
   /* ---------------- SUBJECT HANDLERS ---------------- */
 
   const addSubject = () => {
@@ -113,6 +120,9 @@ const SetupScreen = () => {
         examDate: currentExamDate || undefined,
         importanceLevel: 3,
         topics: [],
+        draftTopicName: '',
+        draftTopicMinutes: '',
+        draftTopicDifficulty: 0.5,
       },
     ]);
 
@@ -143,6 +153,9 @@ const SetupScreen = () => {
           examDate: currentExamDate || undefined,
           importanceLevel: 3,
           topics: generatedTopics,
+          draftTopicName: '',
+          draftTopicMinutes: '',
+          draftTopicDifficulty: 0.5,
         },
       ]);
 
@@ -167,22 +180,25 @@ const SetupScreen = () => {
   /* ---------------- TOPIC HANDLERS ---------------- */
 
   const addTopic = (subjectIndex: number) => {
-    if (!currentTopic.trim()) {
+    const subject = subjects[subjectIndex];
+    if (!subject.draftTopicName?.trim()) {
       showAlert('Error', 'Topic name required');
       return;
     }
 
     const updated = [...subjects];
     updated[subjectIndex].topics.push({
-      name: currentTopic.trim(),
-      estimatedMinutes: Number(currentMinutes) || 60, // Default to 60 if empty
-      difficultyScore: currentDifficulty,
+      name: subject.draftTopicName.trim(),
+      estimatedMinutes: Number(subject.draftTopicMinutes) || 60, // Default to 60 if empty
+      difficultyScore: subject.draftTopicDifficulty ?? 0.5,
     });
 
+    // Reset draft fields
+    updated[subjectIndex].draftTopicName = '';
+    updated[subjectIndex].draftTopicMinutes = '';
+    updated[subjectIndex].draftTopicDifficulty = 0.5;
+
     setSubjects(updated);
-    setCurrentTopic('');
-    setCurrentMinutes(''); // Reset to empty string
-    setCurrentDifficulty(0.5);
   };
 
   const removeTopic = (sIdx: number, tIdx: number) => {
@@ -199,7 +215,9 @@ const SetupScreen = () => {
       return;
     }
 
-    if (currentTopic.trim()) {
+    // Check if any subject has unsaved draft text
+    const hasUnsavedDraft = subjects.some(s => !!s.draftTopicName?.trim());
+    if (hasUnsavedDraft) {
       showAlert('Unsaved Topic', 'You have typed a topic but not added it. Please click "Add Topic" or clear the field.');
       return;
     }
@@ -372,8 +390,8 @@ const SetupScreen = () => {
                 <TextInput
                   placeholder="Topic Name (e.g. Algebra Basics)"
                   placeholderTextColor={PLACEHOLDER_COLOR}
-                  value={currentTopic}
-                  onChangeText={setCurrentTopic}
+                  value={subject.draftTopicName || ''}
+                  onChangeText={(text) => updateSubjectDraft(sIdx, 'draftTopicName', text)}
                   style={styles.input}
                 />
 
@@ -382,8 +400,8 @@ const SetupScreen = () => {
                     <TextInput
                       placeholder="Min"
                       placeholderTextColor={PLACEHOLDER_COLOR}
-                      value={currentMinutes}
-                      onChangeText={setCurrentMinutes}
+                      value={subject.draftTopicMinutes || ''}
+                      onChangeText={(text) => updateSubjectDraft(sIdx, 'draftTopicMinutes', text)}
                       keyboardType="numeric"
                       style={styles.input}
                     />
@@ -394,15 +412,15 @@ const SetupScreen = () => {
                       {[0.2, 0.5, 0.8].map((val) => (
                         <TouchableOpacity
                           key={val}
-                          onPress={() => setCurrentDifficulty(val)}
+                          onPress={() => updateSubjectDraft(sIdx, 'draftTopicDifficulty', val)}
                           style={[
                             styles.diffBadge,
-                            currentDifficulty === val && styles.diffBadgeActive,
+                            (subject.draftTopicDifficulty ?? 0.5) === val && styles.diffBadgeActive,
                           ]}
                         >
                           <Text style={[
                             styles.diffText,
-                            currentDifficulty === val && styles.diffTextActive
+                            (subject.draftTopicDifficulty ?? 0.5) === val && styles.diffTextActive
                           ]}>
                             {val === 0.2 ? 'Easy' : val === 0.5 ? 'Med' : 'Hard'}
                           </Text>
