@@ -1,55 +1,86 @@
-import React from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import { useFocusEffect } from 'expo-router';
 import {
     View,
     Text,
     StyleSheet,
     TouchableOpacity,
+    ActivityIndicator,
+    ScrollView,
 } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
+import { getDailyFeedback } from '../../api/ai';
 
 const AiFeedbackScreen = () => {
+    const [data, setData] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+
+    const loadFeedback = async () => {
+        setLoading(true);
+        try {
+            const feedback = await getDailyFeedback();
+            setData(feedback);
+        } catch (error) {
+            console.error("Failed to load feedback", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useFocusEffect(
+        useCallback(() => {
+            loadFeedback();
+        }, [])
+    );
+
+    if (loading) {
+        return (
+            <MobileCard title="AI Feedback" backgroundColor="#FDF0F3">
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <ActivityIndicator size="large" color="#9D96E1" />
+                    <Text style={{ marginTop: 16, color: '#A0A0C0' }}>Analyzing your performance...</Text>
+                </View>
+            </MobileCard>
+        );
+    }
+
     return (
         <MobileCard title="AI Feedback" backgroundColor="#FDF0F3">
-            <View style={styles.feedbackCard}>
-                <Text style={styles.feedbackTitle}>Daily AI Feedback</Text>
-                <Text style={styles.feedbackText}>
-                    Great job! You excelled in logic tasks today but found memorization difficult. Let&apos;s focus more on flashcards tomorrow.
-                </Text>
-            </View>
-
-            <View style={styles.sectionHeader}>
-                <Text style={styles.sectionLabel}>Suggested Adjustments</Text>
-            </View>
-
-            <View style={styles.spaceY4}>
-                <View style={styles.adjustmentCard}>
-                    <View style={[styles.adjustmentIcon, { backgroundColor: '#E8F8F2' }]}>
-                        <Feather name="zap" size={20} color="#67C7A6" />
-                    </View>
-                    <View style={styles.adjustmentContent}>
-                        <Text style={styles.adjustmentTitle}>Flashcard Review</Text>
-                        <Text style={styles.adjustmentSub}>30 mins of Term Drills</Text>
-                    </View>
+            <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
+                <View style={styles.feedbackCard}>
+                    <Text style={styles.feedbackTitle}>Daily AI Feedback</Text>
+                    <Text style={styles.feedbackText}>
+                        {data?.feedback || "No feedback available yet. Complete some sessions!"}
+                    </Text>
                 </View>
 
-                <View style={[styles.adjustmentCard, { position: 'relative', overflow: 'hidden' }]}>
-                    <View style={[styles.adjustmentIcon, { backgroundColor: '#FDF0F3' }]}>
-                        <MaterialCommunityIcons name="brain" size={20} color="#F8A4B3" />
-                    </View>
-                    <View style={styles.adjustmentContent}>
-                        <Text style={styles.adjustmentTitle}>Light Topic</Text>
-                        <Text style={styles.adjustmentSub}>Intro to Ecology | 40m</Text>
-                    </View>
-                    <View style={styles.botIcon}>
-                        <MaterialCommunityIcons name="robot" size={80} color="#9D96E1" />
-                    </View>
-                </View>
-            </View>
+                {data?.adjustments?.length > 0 && (
+                    <>
+                        <View style={styles.sectionHeader}>
+                            <Text style={styles.sectionLabel}>Suggested Adjustments</Text>
+                        </View>
 
-            <TouchableOpacity style={styles.gotItButton}>
-                <Text style={styles.gotItText}>Got it!</Text>
-            </TouchableOpacity>
+                        <View style={styles.spaceY4}>
+                            {data.adjustments.map((adj: any, idx: number) => (
+                                <View key={idx} style={styles.adjustmentCard}>
+                                    <View style={[styles.adjustmentIcon, { backgroundColor: '#E8F8F2' }]}>
+                                        <Feather name={adj.icon || 'activity'} size={20} color="#67C7A6" />
+                                    </View>
+                                    <View style={styles.adjustmentContent}>
+                                        <Text style={styles.adjustmentTitle}>{adj.title}</Text>
+                                        <Text style={styles.adjustmentSub}>{adj.subtitle}</Text>
+                                    </View>
+                                </View>
+                            ))}
+                        </View>
+                    </>
+                )}
+
+                <TouchableOpacity style={styles.gotItButton} onPress={loadFeedback}>
+                    <Text style={styles.gotItText}>Refresh Analysis</Text>
+                </TouchableOpacity>
+            </ScrollView>
         </MobileCard>
     );
 };

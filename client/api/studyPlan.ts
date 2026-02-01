@@ -66,3 +66,8 @@ export const getDatesWithPlans = async () => {
   return res.data.dates; // ["2026-01-21", ...]
 };
 
+export const removeTaskFromPlan = async (topicId: string) => {
+  const res = await client.delete(`/study-plan/task/${topicId}`);
+  return res.data;
+};
+

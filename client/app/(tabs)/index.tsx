@@ -7,16 +7,21 @@ import {
   ActivityIndicator,
   ScrollView,
   Alert,
+  Platform,
+  TextInput,
 } from 'react-native';
+
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import { getTodayPlan, regeneratePlan } from '../../api/studyPlan';
+import { getTodayPlan, regeneratePlan, removeTaskFromPlan } from '../../api/studyPlan';
+import { updateProfile } from '../../api/user';
 
 const TodaysPlanScreen = () => {
   const [plan, setPlan] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [recalibrating, setRecalibrating] = useState(false);
+  const [dailyHours, setDailyHours] = useState('2');
 
   const router = useRouter();
   const params = useLocalSearchParams();
@@ -85,14 +90,67 @@ const TodaysPlanScreen = () => {
   const handleGeneratePlan = async () => {
     setLoading(true);
     try {
+      // 1. Update Daily Hours first
+      await updateProfile({ maxDailyMinutes: Number(dailyHours) * 60 });
+
+      // 2. Generate Plan
       const response = await regeneratePlan();
       setPlan(response);
       Alert.alert("Success", "Study plan generated for today!");
-    } catch {
+    } catch (err: any) {
+      console.error(err);
       Alert.alert("Error", "Failed to generate today's plan");
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleRemoveTask = async (topicId: string) => {
+    console.log("Attempting to delete topic:", topicId);
+    if (!topicId) {
+      Alert.alert("Error", "Invalid task ID");
+      return;
+    }
+
+    const performDelete = async () => {
+      console.log("Deletion confirmed for:", topicId);
+      try {
+        const res = await removeTaskFromPlan(topicId);
+        console.log("Delete response:", res);
+
+        // Optimistic update
+        if (plan) {
+          const updatedTasks = plan.tasks.filter((t: any) => t.topic?._id !== topicId);
+          setPlan({ ...plan, tasks: updatedTasks });
+        }
+      } catch (error) {
+        console.error("Delete failed:", error);
+        Alert.alert("Error", "Failed to remove task");
+      }
+    };
+
+    if (Platform.OS === 'web') {
+      const confirmed = window.confirm("Are you sure you want to remove this task from today's plan?");
+      if (confirmed) {
+        await performDelete();
+      } else {
+        console.log("Deletion cancelled (Web)");
+      }
+      return;
+    }
+
+    Alert.alert(
+      "Remove Task",
+      "Are you sure you want to remove this task from today's plan?",
+      [
+        { text: "Cancel", style: "cancel", onPress: () => console.log("Deletion cancelled") },
+        {
+          text: "Remove",
+          style: "destructive",
+          onPress: performDelete
+        }
+      ]
+    );
   };
 
   /* ---------------- UI ---------------- */
@@ -102,9 +160,11 @@ const TodaysPlanScreen = () => {
       title="Today's Plan"
       backgroundColor="#F8F9FF"
       headerRight={
-        <TouchableOpacity onPress={fetchPlan}>
-          <Feather name="refresh-cw" size={20} color="#9D96E1" />
-        </TouchableOpacity>
+        <View style={{ flexDirection: 'row', gap: 16 }}>
+          <TouchableOpacity onPress={fetchPlan}>
+            <Feather name="refresh-cw" size={20} color="#9D96E1" />
+          </TouchableOpacity>
+        </View>
       }
     >
       <View style={styles.dateContainer}>
@@ -116,14 +176,25 @@ const TodaysPlanScreen = () => {
         <ActivityIndicator size="large" color="#9D96E1" />
       ) : !plan?.tasks?.length ? (
         <View style={styles.emptyState}>
-          <Text style={styles.emptyText}>No plan for today.</Text>
+          <Text style={styles.emptyText}>Configure Today's Session</Text>
+
+          <View style={styles.hoursContainer}>
+            <Text style={styles.hoursLabel}>How many hours today?</Text>
+            <TextInput
+              style={styles.input}
+              value={dailyHours}
+              onChangeText={setDailyHours}
+              keyboardType="numeric"
+              placeholder="2"
+            />
+          </View>
 
           <TouchableOpacity
             style={styles.generateButton}
             onPress={handleGeneratePlan}
           >
             <Text style={styles.generateButtonText}>
-              Generate Today's Plan
+              Generate Plan
             </Text>
           </TouchableOpacity>
         </View>
@@ -157,12 +228,16 @@ const TodaysPlanScreen = () => {
                     </Text>
                   </View>
 
-                  {isDone && (
+                  {isDone ? (
                     <Feather
                       name="check-circle"
                       size={20}
                       color="#67C7A6"
                     />
+                  ) : (
+                    <TouchableOpacity onPress={() => handleRemoveTask(item.topic._id)}>
+                      <Feather name="trash-2" size={18} color="#F8A4B3" />
+                    </TouchableOpacity>
                   )}
                 </View>
               );
@@ -171,12 +246,21 @@ const TodaysPlanScreen = () => {
       )}
 
       {plan?.tasks?.length > 0 && (
-        <TouchableOpacity
-          style={styles.startButton}
-          onPress={handleStartStudying}
-        >
-          <Text style={styles.startText}>Start Studying</Text>
-        </TouchableOpacity>
+        <View style={styles.actionRow}>
+          <TouchableOpacity
+            style={styles.skipButton}
+            onPress={handleSkipDay}
+          >
+            <Text style={styles.skipButtonText}>Skip Day</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.startButton}
+            onPress={handleStartStudying}
+          >
+            <Text style={styles.startText}>Start Studying</Text>
+          </TouchableOpacity>
+        </View>
       )}
     </MobileCard>
   );
@@ -218,32 +302,78 @@ const styles = StyleSheet.create({
     color: '#6B7280',
   },
   startButton: {
+    flex: 1,
     backgroundColor: '#67C7A6',
     padding: 16,
     borderRadius: 24,
     alignItems: 'center',
+  },
+  actionRow: {
+    flexDirection: 'row',
+    gap: 12,
     marginTop: 16,
+  },
+  skipButton: {
+    flex: 1,
+    backgroundColor: '#fff',
+    borderWidth: 2,
+    borderColor: '#9D96E1',
+    padding: 16,
+    borderRadius: 24,
+    alignItems: 'center',
+  },
+  skipButtonText: {
+    color: '#9D96E1',
+    fontWeight: '700',
   },
   startText: {
     color: '#fff',
     fontWeight: '700',
   },
+
+  /* Empty State / Generate */
   emptyState: {
     alignItems: 'center',
     marginTop: 32,
+    gap: 20,
+    backgroundColor: '#fff',
+    padding: 24,
+    borderRadius: 24,
   },
   emptyText: {
     fontWeight: '700',
     color: '#5C5C8E',
+    fontSize: 16,
+  },
+  hoursContainer: {
+    width: '100%',
+    alignItems: 'center',
+    gap: 10,
+  },
+  hoursLabel: {
+    color: '#6B7280',
+    fontSize: 14,
+  },
+  input: {
+    backgroundColor: '#F3F4F6',
+    width: '50%',
+    padding: 12,
+    textAlign: 'center',
+    borderRadius: 12,
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#5C5C8E',
   },
   generateButton: {
-    marginTop: 16,
+    width: '100%',
     backgroundColor: '#9D96E1',
-    padding: 12,
+    padding: 16,
     borderRadius: 24,
+    alignItems: 'center',
   },
   generateButtonText: {
     color: '#fff',
     fontWeight: '700',
+    fontSize: 16,
   },
 });

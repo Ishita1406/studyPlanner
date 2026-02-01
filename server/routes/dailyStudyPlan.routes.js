@@ -7,6 +7,7 @@ const dailyStudyPlanRouter = express.Router();
 dailyStudyPlanRouter.get("/today", authenticateToken, getTodayPlan);
 dailyStudyPlanRouter.get("/by-date", authenticateToken, getPlanByDate);
 dailyStudyPlanRouter.post("/regenerate", authenticateToken, regeneratePlan);
-dailyStudyPlanRouter.get('/dates',authenticateToken, getDatesWithPlans);
+dailyStudyPlanRouter.delete("/task/:topicId", authenticateToken, (await import("../controllers/dailyStudyPlan.controller.js")).removeTask);
+dailyStudyPlanRouter.get('/dates', authenticateToken, getDatesWithPlans);
 
 export default dailyStudyPlanRouter;

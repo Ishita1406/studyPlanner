@@ -10,6 +10,11 @@ import { generateDailySchedule } from "../services/ai.service.js";
  * Formula: (SubjectImportance / DaysToDeadline) * (1 - MasteryLevel) * Difficulty
  */
 const calculatePriority = (topic, subject) => {
+    // 🛡️ Safeguard: If subject is missing (e.g. deleted), give it low priority but don't crash
+    if (!subject) {
+        return 0; // Lowest priority
+    }
+
     const today = new Date();
     const examDate = subject.examDate ? new Date(subject.examDate) : new Date(today.getTime() + 90 * 24 * 60 * 60 * 1000); // Default 90 days
 
@@ -44,35 +49,49 @@ export const generateDailyPlan = async (userId) => {
         }
 
         // 2. Fetch Pending Topics
-        const topics = await Topic.find({
+        const startOfDay = new Date();
+        startOfDay.setHours(0, 0, 0, 0);
+
+        let topics = await Topic.find({
             user: userId,
-            status: { $ne: 'completed' }
+            status: { $ne: 'completed' },
+            $or: [
+                { lastSkippedDate: { $exists: false } },
+                { lastSkippedDate: { $lt: startOfDay } }
+            ]
         }).populate('subject');
+
+        // 🧹 Filter out topics with missing/null subjects (orphaned topics)
+        topics = topics.filter(t => t.subject != null);
 
         if (topics.length === 0) return null;
 
         // 3. Try AI Generation First
         console.log("Attempting AI schedule generation...");
-        const aiSchedule = await generateDailySchedule(availableMinutes, topics);
-
         let selectedTasks = [];
         let usedMinutes = 0;
 
-        if (aiSchedule && aiSchedule.length > 0) {
-            console.log("AI generated a schedule.");
-            for (const item of aiSchedule) {
-                // Verify topic exists in our list (security check)
-                const originalTopic = topics.find(t => t._id.toString() === item.topicId);
-                if (originalTopic) {
-                    selectedTasks.push({
-                        topic: originalTopic._id,
-                        plannedMinutes: item.plannedMinutes,
-                        priority: 10, // High priority for AI selections
-                        energyMatchScore: 1.0
-                    });
-                    usedMinutes += item.plannedMinutes;
+        try {
+            const aiSchedule = await generateDailySchedule(availableMinutes, topics);
+
+            if (aiSchedule && aiSchedule.length > 0) {
+                console.log("AI generated a schedule.");
+                for (const item of aiSchedule) {
+                    // Verify topic exists in our list (security check)
+                    const originalTopic = topics.find(t => t._id.toString() === item.topicId);
+                    if (originalTopic) {
+                        selectedTasks.push({
+                            topic: originalTopic._id,
+                            plannedMinutes: item.plannedMinutes,
+                            priority: 10, // High priority for AI selections
+                            energyMatchScore: 1.0
+                        });
+                        usedMinutes += item.plannedMinutes;
+                    }
                 }
             }
+        } catch (aiError) {
+            console.error("AI Generation failed, falling back to algorithm:", aiError);
         }
 
         // 4. Fallback if AI failed or returned empty

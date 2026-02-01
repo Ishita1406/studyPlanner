@@ -23,3 +23,12 @@ export const getSessionFeedback = async (sessionData: any) => {
         return "Great job completing your session! Keep maintaining this momentum to reach your goals.";
     }
 };
+
+export const getDailyFeedback = async () => {
+    try {
+        const response = await axios.get(`${API_URL}/ai/daily-feedback`);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};

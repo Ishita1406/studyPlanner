@@ -1,4 +1,5 @@
 import DailyStudyPlan from "../models/dailyStudyPlan.model.js";
+import Topic from "../models/topics.model.js";
 import { generateDailyPlan } from "../utils/scheduler.js";
 
 export const getTodayPlan = async (req, res) => {
@@ -28,6 +29,32 @@ export const getTodayPlan = async (req, res) => {
     return res.status(200).json({ plan });
   } catch (error) {
     console.error("Get today plan error:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const removeTask = async (req, res) => {
+  try {
+    const userId = req.user?.sub;
+    const { topicId } = req.params;
+
+    if (!userId) return res.status(401).json({ message: "Unauthorized" });
+
+    const today = new Date().toISOString().split("T")[0];
+    const plan = await DailyStudyPlan.findOne({ user: userId, date: today });
+
+    if (!plan) return res.status(404).json({ message: "Plan not found" });
+
+    // Remove the task
+    plan.tasks = plan.tasks.filter(t => t.topic.toString() !== topicId);
+    await plan.save();
+
+    // Mark topic as skipped for today
+    await Topic.findByIdAndUpdate(topicId, { lastSkippedDate: new Date() });
+
+    return res.status(200).json({ message: "Task removed", plan });
+  } catch (error) {
+    console.error("Remove task error:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };

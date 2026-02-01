@@ -197,9 +197,71 @@ Notes: "${sessionData.notes || "None"}"
 
 /**
  * ======================================================
- * AI: Daily Study Schedule Generator
+ * AI: Daily Performance Review
  * ======================================================
  */
+export const analyzeDailyPerformance = async (summaryData) => {
+    try {
+        const aiClient = getClient();
+        if (!aiClient) {
+            return {
+                feedback: "Good effort today! Keep pushing to reach your study goals.",
+                adjustments: [
+                    { title: "Review", subtitle: "Go over today's notes", icon: "book" }
+                ]
+            };
+        }
+
+        const response = await aiClient.chat.completions.create({
+            model: "Qwen/Qwen2.5-7B-Instruct",
+            temperature: 0.4,
+            max_tokens: 400,
+            messages: [
+                {
+                    role: "system",
+                    content: `
+You are an expert study coach.
+Analyze the student's daily performance.
+Return ONLY valid JSON.
+Format:
+{
+  "feedback": "2-3 sentences of encouraging feedback based on data.",
+  "adjustments": [
+    { "title": "...", "subtitle": "...", "icon": "zap" },
+    { "title": "...", "subtitle": "...", "icon": "clock" }
+  ]
+}
+Icons must be Feather icon names (e.g. zap, book, activity, coffee).
+          `
+                },
+                {
+                    role: "user",
+                    content: `
+Data:
+Total Minutes: ${summaryData.totalMinutes}
+Average Focus: ${summaryData.avgFocus.toFixed(1)}/5
+Topics: ${summaryData.topics}
+Difficulties: ${summaryData.difficulties.join(", ")}
+          `
+                }
+            ]
+        });
+
+        let content = cleanJSONOutput(response.choices?.[0]?.message?.content);
+        const parsed = safeParseJSON(content);
+
+        if (!parsed) throw new Error("Invalid AI JSON");
+
+        return parsed;
+
+    } catch (err) {
+        console.error("❌ Daily Analysis Error:", err);
+        return {
+            feedback: "Great work logging your sessions! Consistency is key.",
+            adjustments: []
+        };
+    }
+};
 
 export const generateDailySchedule = async (availableMinutes, topics) => {
     try {

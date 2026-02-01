@@ -44,6 +44,9 @@ const topicSchema = new mongoose.Schema(
     lastReviewedAt: {
       type: Date,
     },
+    lastSkippedDate: {
+      type: Date,
+    },
   },
   { timestamps: true }
 );

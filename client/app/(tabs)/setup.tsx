@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   ScrollView,
   Platform,
+  KeyboardAvoidingView,
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import MobileCard from '../components/MobileCard';
@@ -17,9 +18,9 @@ import { Calendar } from 'react-native-calendars';
 import { Modal } from 'react-native';
 
 import { createProfile, getProfile, updateProfile } from '../../api/user';
-import { generatePlan, regeneratePlan } from '../../api/studyPlan';
 import { createSubject } from '@/api/subject';
 import { createTopic } from '@/api/topic';
+import { getTopicBreakdown } from '@/api/ai';
 
 /* ---------------- TYPES ---------------- */
 
@@ -35,7 +36,8 @@ interface SubjectItem {
   importanceLevel: number;
   topics: TopicItem[];
 }
-const PLACEHOLDER_COLOR = '#B8B8C7'; // soft light grey
+const PLACEHOLDER_COLOR = '#B8B8C7';
+const ACTIVE_COLOR = '#9D96E1';
 
 /* ---------------- COMPONENT ---------------- */
 
@@ -43,9 +45,8 @@ const SetupScreen = () => {
   const router = useRouter();
 
   /* ---------- Profile ---------- */
-  const [dailyHours, setDailyHours] = useState('2');
   const [peakEnergy, setPeakEnergy] =
-    useState<'morning' | 'afternoon' | 'evening' | null>(null);
+    useState<'morning' | 'afternoon' | 'evening'>('morning');
   const [existingProfile, setExistingProfile] = useState<any>(null);
   const [profileLoading, setProfileLoading] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -56,9 +57,12 @@ const SetupScreen = () => {
   const [currentExamDate, setCurrentExamDate] = useState('');
   const [showDatePicker, setShowDatePicker] = useState(false);
 
+  // AI Generation State
+  const [isGenerating, setIsGenerating] = useState(false);
+
   /* ---------- Topics ---------- */
   const [currentTopic, setCurrentTopic] = useState('');
-  const [currentMinutes, setCurrentMinutes] = useState('60');
+  const [currentMinutes, setCurrentMinutes] = useState('');
   const [currentDifficulty, setCurrentDifficulty] = useState(0.5);
 
   /* ---------------- EFFECT ---------------- */
@@ -69,8 +73,12 @@ const SetupScreen = () => {
         const profile = await getProfile();
         if (profile?._id) {
           setExistingProfile(profile);
-          if (profile.maxDailyMinutes) {
-            setDailyHours((profile.maxDailyMinutes / 60).toString());
+          // Set peak energy if exists
+          if (profile.energyProfile && profile.energyProfile.length > 0) {
+            const hour = profile.energyProfile[0].hour;
+            if (hour === 9) setPeakEnergy('morning');
+            if (hour === 14) setPeakEnergy('afternoon');
+            if (hour === 20) setPeakEnergy('evening');
           }
         }
       } catch (err: any) {
@@ -112,6 +120,44 @@ const SetupScreen = () => {
     setCurrentExamDate('');
   };
 
+  const generateTopicsWithAI = async () => {
+    if (!currentSubject.trim()) {
+      showAlert('Error', 'Please enter a subject name first');
+      return;
+    }
+
+    setIsGenerating(true);
+    try {
+      const generatedTopics = await getTopicBreakdown(currentSubject.trim());
+
+      if (!generatedTopics || generatedTopics.length === 0) {
+        showAlert('Info', 'AI could not generate topics. Please add them manually.');
+        setIsGenerating(false);
+        return;
+      }
+
+      setSubjects(prev => [
+        ...prev,
+        {
+          name: currentSubject.trim(),
+          examDate: currentExamDate || undefined,
+          importanceLevel: 3,
+          topics: generatedTopics,
+        },
+      ]);
+
+      setCurrentSubject('');
+      setCurrentExamDate('');
+      showAlert('Success', 'Topics generated successfully! You can customize them below.');
+
+    } catch (err) {
+      console.error(err);
+      showAlert('Error', 'Failed to generate topics with AI');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   const removeSubject = (index: number) => {
     const updated = [...subjects];
     updated.splice(index, 1);
@@ -129,16 +175,14 @@ const SetupScreen = () => {
     const updated = [...subjects];
     updated[subjectIndex].topics.push({
       name: currentTopic.trim(),
-      estimatedMinutes: Number(currentMinutes) || 60,
+      estimatedMinutes: Number(currentMinutes) || 60, // Default to 60 if empty
       difficultyScore: currentDifficulty,
     });
 
     setSubjects(updated);
     setCurrentTopic('');
-    setCurrentMinutes('60');
+    setCurrentMinutes(''); // Reset to empty string
     setCurrentDifficulty(0.5);
-    console.log();
-
   };
 
   const removeTopic = (sIdx: number, tIdx: number) => {
@@ -162,7 +206,7 @@ const SetupScreen = () => {
 
     const totalTopics = subjects.reduce((acc, sub) => acc + sub.topics.length, 0);
     if (totalTopics === 0) {
-      showAlert('No Topics', 'Please add at least one topic to your subjects so we can generate a plan.');
+      showAlert('No Topics', 'Please add at least one topic to your subjects.');
       return;
     }
 
@@ -171,20 +215,17 @@ const SetupScreen = () => {
     try {
       /* 1️⃣ PROFILE */
       const profilePayload = {
-        maxDailyMinutes: Number(dailyHours) * 60,
-        energyProfile: peakEnergy
-          ? [
-            {
-              hour:
-                peakEnergy === 'morning'
-                  ? 9
-                  : peakEnergy === 'afternoon'
-                    ? 14
-                    : 20,
-              energy: 100,
-            },
-          ]
-          : [],
+        energyProfile: [
+          {
+            hour:
+              peakEnergy === 'morning'
+                ? 9
+                : peakEnergy === 'afternoon'
+                  ? 14
+                  : 20,
+            energy: 100,
+          },
+        ]
       };
 
       existingProfile
@@ -199,9 +240,6 @@ const SetupScreen = () => {
           importanceLevel: subject.importanceLevel,
         });
 
-        console.log(subject);
-
-
         for (const topic of subject.topics) {
           await createTopic({
             subject: createdSubject._id,
@@ -210,15 +248,9 @@ const SetupScreen = () => {
             difficultyScore: topic.difficultyScore,
           });
         }
-
-
-
       }
 
-      /* 3️⃣ PLAN */
-      existingProfile ? await regeneratePlan() : await generatePlan();
-
-      showAlert('Success', 'Study plan ready!');
+      showAlert('Success', 'Subjects saved! Now set your study hours on the home screen.');
       router.replace('/(tabs)');
     } catch (err) {
       console.error(err);
@@ -240,162 +272,243 @@ const SetupScreen = () => {
 
   return (
     <MobileCard title="Setup Syllabus" backgroundColor="#F0F7FF">
-      <ScrollView contentContainerStyle={styles.space}>
-        {/* DAILY TIME */}
-        <TextInput
-          style={styles.input}
-          placeholder="Daily Study Hours"
-          placeholderTextColor={PLACEHOLDER_COLOR}
-          value={dailyHours}
-          onChangeText={setDailyHours}
-          keyboardType="numeric"
-        />
+      <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : undefined} style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
 
-        {/* SUBJECT LIST */}
-        {subjects.map((subject, sIdx) => (
-          <View key={sIdx} style={styles.subjectCard}>
-            <View style={styles.subjectHeader}>
-              <Text style={styles.subjectTitle}>{subject.name}</Text>
-              <TouchableOpacity onPress={() => removeSubject(sIdx)}>
-                <Feather name="trash-2" size={16} color="#F8A4B3" />
-              </TouchableOpacity>
+          {/* PREFERENCES CARD */}
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>Study Preference</Text>
+            <View style={styles.sectionHeader}>
+              <Feather name="sun" size={16} color="#7C7C9E" />
+              <Text style={styles.sectionLabel}>Peak Energy Time</Text>
             </View>
 
-            {/* IMPORTANCE */}
-            <View style={styles.importanceRow}>
-              <Text style={styles.label}>Importance</Text>
-              <View style={styles.importanceLevels}>
-                {[1, 2, 3, 4, 5].map(level => (
-                  <TouchableOpacity
-                    key={level}
-                    onPress={() => {
-                      const updated = [...subjects];
-                      updated[sIdx].importanceLevel = level;
-                      setSubjects(updated);
-                    }}
-                    style={[
-                      styles.importanceDot,
-                      subject.importanceLevel >= level &&
-                      styles.importanceActive,
-                    ]}
-                  />
-                ))}
-              </View>
-            </View>
-
-            {subject.examDate && (
-              <Text style={styles.exam}>Exam: {subject.examDate}</Text>
-            )}
-
-            {/* TOPICS */}
-            {subject.topics.map((t, tIdx) => (
-              <View key={tIdx} style={styles.topicRow}>
-                <Text style={styles.topicText}>
-                  {t.name} · {t.estimatedMinutes}m ·{' '}
-                  {(t.difficultyScore * 100).toFixed(0)}%
-                </Text>
+            <View style={styles.segmentContainer}>
+              {(['morning', 'afternoon', 'evening'] as const).map((time) => (
                 <TouchableOpacity
-                  onPress={() => removeTopic(sIdx, tIdx)}
+                  key={time}
+                  style={[
+                    styles.segmentButton,
+                    peakEnergy === time && styles.segmentButtonActive,
+                  ]}
+                  onPress={() => setPeakEnergy(time)}
                 >
-                  <Feather name="x" size={14} color="#999" />
+                  <Text
+                    style={[
+                      styles.segmentText,
+                      peakEnergy === time && styles.segmentTextActive,
+                    ]}
+                  >
+                    {time.charAt(0).toUpperCase() + time.slice(1)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+          </View>
+
+          {/* SUBJECT LIST */}
+          {subjects.map((subject, sIdx) => (
+            <View key={sIdx} style={styles.card}>
+              <View style={styles.subjectHeader}>
+                <View>
+                  <Text style={styles.subjectTitle}>{subject.name}</Text>
+                  {subject.examDate && (
+                    <Text style={styles.examDate}>Exam: {subject.examDate}</Text>
+                  )}
+                </View>
+
+                <TouchableOpacity onPress={() => removeSubject(sIdx)} style={styles.deleteBtn}>
+                  <Feather name="trash-2" size={18} color="#F8A4B3" />
                 </TouchableOpacity>
               </View>
-            ))}
 
-            {/* ADD TOPIC */}
-            <View style={styles.topicInputRow}>
-              <TextInput
-                placeholder="Topic"
-                placeholderTextColor={PLACEHOLDER_COLOR}
-                value={currentTopic}
-                onChangeText={setCurrentTopic}
-                style={styles.topicInput}
-              />
-              <TextInput
-                placeholder="Min"
-                placeholderTextColor={PLACEHOLDER_COLOR}
-                value={currentMinutes}
-                onChangeText={setCurrentMinutes}
-                keyboardType="numeric"
-                style={styles.minutesInput}
-              />
-            </View>
+              {/* IMPORTANCE */}
+              <View style={styles.importanceContainer}>
+                <Text style={styles.labelSmall}>Priority</Text>
+                <View style={styles.dotsRow}>
+                  {[1, 2, 3, 4, 5].map(level => (
+                    <TouchableOpacity
+                      key={level}
+                      onPress={() => {
+                        const updated = [...subjects];
+                        updated[sIdx].importanceLevel = level;
+                        setSubjects(updated);
+                      }}
+                      style={[
+                        styles.importanceDot,
+                        subject.importanceLevel >= level &&
+                        styles.importanceActive,
+                      ]}
+                    />
+                  ))}
+                </View>
+              </View>
 
-            <View style={styles.difficultyRow}>
-              <Text style={styles.label}>
-                Difficulty {(currentDifficulty * 100).toFixed(0)}%
-              </Text>
-              <View style={styles.difficultyBar}>
-                {[0.2, 0.4, 0.6, 0.8, 1].map(val => (
-                  <TouchableOpacity
-                    key={val}
-                    onPress={() => setCurrentDifficulty(val)}
-                    style={[
-                      styles.difficultySegment,
-                      currentDifficulty >= val &&
-                      styles.difficultyActive,
-                    ]}
-                  />
-                ))}
+              <View style={styles.divider} />
+
+              {/* TOPICS LIST */}
+              {subject.topics.length > 0 && (
+                <View style={styles.topicList}>
+                  {subject.topics.map((t, tIdx) => (
+                    <View key={tIdx} style={styles.topicItem}>
+                      <View style={{ flex: 1 }}>
+                        <Text style={styles.topicName}>{t.name}</Text>
+                        <Text style={styles.topicMeta}>
+                          {t.estimatedMinutes}m · {t.difficultyScore > 0.7 ? 'Hard' : t.difficultyScore > 0.4 ? 'Medium' : 'Easy'}
+                        </Text>
+                      </View>
+                      <TouchableOpacity onPress={() => removeTopic(sIdx, tIdx)}>
+                        <Feather name="x" size={16} color="#B8B8C7" />
+                      </TouchableOpacity>
+                    </View>
+                  ))}
+                </View>
+              )}
+
+              {/* ADD TOPIC AREA */}
+              <View style={styles.addTopicArea}>
+                <Text style={styles.addTopicLabel}>Add New Topic</Text>
+
+                <TextInput
+                  placeholder="Topic Name (e.g. Algebra Basics)"
+                  placeholderTextColor={PLACEHOLDER_COLOR}
+                  value={currentTopic}
+                  onChangeText={setCurrentTopic}
+                  style={styles.input}
+                />
+
+                <View style={styles.rowGap}>
+                  <View style={{ flex: 1 }}>
+                    <TextInput
+                      placeholder="Min"
+                      placeholderTextColor={PLACEHOLDER_COLOR}
+                      value={currentMinutes}
+                      onChangeText={setCurrentMinutes}
+                      keyboardType="numeric"
+                      style={styles.input}
+                    />
+                  </View>
+
+                  <View style={{ flex: 2 }}>
+                    <View style={styles.difficultyContainer}>
+                      {[0.2, 0.5, 0.8].map((val) => (
+                        <TouchableOpacity
+                          key={val}
+                          onPress={() => setCurrentDifficulty(val)}
+                          style={[
+                            styles.diffBadge,
+                            currentDifficulty === val && styles.diffBadgeActive,
+                          ]}
+                        >
+                          <Text style={[
+                            styles.diffText,
+                            currentDifficulty === val && styles.diffTextActive
+                          ]}>
+                            {val === 0.2 ? 'Easy' : val === 0.5 ? 'Med' : 'Hard'}
+                          </Text>
+                        </TouchableOpacity>
+                      ))}
+                    </View>
+                  </View>
+                </View>
+
+                <TouchableOpacity
+                  style={styles.addTopicBtn}
+                  onPress={() => addTopic(sIdx)}
+                >
+                  <Feather name="plus-circle" size={16} color="#fff" />
+                  <Text style={styles.addTopicBtnText}>Add Topic</Text>
+                </TouchableOpacity>
               </View>
             </View>
+          ))}
+
+          {/* ADD NEW SUBJECT CARD */}
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>New Subject</Text>
+
+            <TextInput
+              placeholder="Subject Name (e.g. Mathematics)"
+              placeholderTextColor={PLACEHOLDER_COLOR}
+              value={currentSubject}
+              onChangeText={setCurrentSubject}
+              style={styles.input}
+            />
 
             <TouchableOpacity
-              style={styles.addTopicBtn}
-              onPress={() => addTopic(sIdx)}
+              style={styles.dateSelector}
+              onPress={() => setShowDatePicker(true)}
             >
-              <Feather name="plus" size={16} color="#9D96E1" />
-              <Text style={styles.addTopicText}>Add Topic</Text>
+              <Feather name="calendar" size={18} color="#7C7C9E" />
+              <Text style={styles.dateSelectorText}>
+                {currentExamDate || 'Select Exam Date (Optional)'}
+              </Text>
             </TouchableOpacity>
+
+            <View style={styles.actionRow}>
+              <TouchableOpacity style={styles.addSubjectBtn} onPress={addSubject}>
+                <Text style={styles.addSubjectBtnText}>+ Manual Add</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                style={[styles.aiBtn, isGenerating && styles.aiBtnDisabled]}
+                onPress={generateTopicsWithAI}
+                disabled={isGenerating}
+              >
+                {isGenerating ? (
+                  <ActivityIndicator color="#fff" size="small" />
+                ) : (
+                  <>
+                    <Feather name="cpu" size={16} color="#fff" />
+                    <Text style={styles.aiBtnText}>Auto-Generate</Text>
+                  </>
+                )}
+              </TouchableOpacity>
+            </View>
           </View>
-        ))}
 
-        {/* ADD SUBJECT */}
-        <TextInput
-          placeholder="New subject"
-          placeholderTextColor={PLACEHOLDER_COLOR}
-          value={currentSubject}
-          onChangeText={setCurrentSubject}
-          style={styles.input}
-        />
+          <View style={{ height: 20 }} />
 
-        <TouchableOpacity
-          style={styles.dateBtn}
-          onPress={() => setShowDatePicker(true)}
-        >
-          <Feather name="calendar" size={16} color="#5C5C8E" />
-          <Text>
-            {currentExamDate || 'Set exam date'}
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.addBtn} onPress={addSubject}>
-          <Text style={styles.addText}>+ Add Subject</Text>
-        </TouchableOpacity>
-      </ScrollView>
+        </ScrollView>
+      </KeyboardAvoidingView>
 
       {/* SAVE */}
-      <TouchableOpacity
-        style={styles.saveBtn}
-        onPress={handleSave}
-        disabled={loading}
-      >
-        {loading ? (
-          <ActivityIndicator color="#fff" />
-        ) : (
-          <Text style={styles.saveText}>Create Plan</Text>
-        )}
-      </TouchableOpacity>
+      <View style={styles.footer}>
+        <TouchableOpacity
+          style={styles.saveBtn}
+          onPress={handleSave}
+          disabled={loading}
+        >
+          {loading ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.saveText}>Save Setup</Text>
+          )}
+        </TouchableOpacity>
+      </View>
 
       {/* DATE MODAL */}
-      <Modal visible={showDatePicker} transparent animationType="slide">
-        <View style={styles.modal}>
-          <Calendar
-            onDayPress={d => {
-              setCurrentExamDate(d.dateString);
-              setShowDatePicker(false);
-            }}
-          />
+      <Modal visible={showDatePicker} transparent animationType="fade">
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <Calendar
+              onDayPress={d => {
+                setCurrentExamDate(d.dateString);
+                setShowDatePicker(false);
+              }}
+              theme={{
+                selectedDayBackgroundColor: ACTIVE_COLOR,
+                todayTextColor: ACTIVE_COLOR,
+                arrowColor: ACTIVE_COLOR,
+              }}
+            />
+            <TouchableOpacity
+              style={styles.modalCloseBtn}
+              onPress={() => setShowDatePicker(false)}
+            >
+              <Text style={styles.modalCloseText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Modal>
     </MobileCard>
@@ -407,115 +520,203 @@ export default SetupScreen;
 /* ---------------- STYLES ---------------- */
 
 const styles = StyleSheet.create({
-  loader: { flex: 1, justifyContent: 'center' },
-  space: { padding: 16, gap: 12 },
+  loader: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  scrollContent: { padding: 16, gap: 20, paddingBottom: 100 },
+
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    padding: 16,
+    shadowColor: '#9D96E1',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 3,
+    gap: 12,
+  },
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#5C5C8E',
+    marginBottom: 4,
+  },
+
+  /* Preferences */
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  sectionLabel: { fontSize: 14, fontWeight: '600', color: '#7C7C9E' },
+
+  segmentContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#F7F7FF',
+    borderRadius: 12,
+    padding: 4,
+  },
+  segmentButton: {
+    flex: 1,
+    paddingVertical: 8,
+    alignItems: 'center',
+    borderRadius: 8,
+  },
+  segmentButtonActive: {
+    backgroundColor: '#fff',
+    shadowColor: '#9D96E1',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  segmentText: { fontSize: 13, color: '#B8B8C7', fontWeight: '500' },
+  segmentTextActive: { color: ACTIVE_COLOR, fontWeight: '700' },
+
+  /* Subject Card */
+  subjectHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
+  subjectTitle: { fontSize: 18, fontWeight: '800', color: '#5C5C8E' },
+  examDate: { fontSize: 12, color: '#F8A4B3', marginTop: 2, fontWeight: '600' },
+  deleteBtn: { padding: 4 },
+
+  importanceContainer: { flexDirection: 'row', alignItems: 'center', gap: 12 },
+  labelSmall: { fontSize: 12, color: '#B8B8C7', fontWeight: '600', textTransform: 'uppercase' },
+  dotsRow: { flexDirection: 'row', gap: 6 },
+  importanceDot: { width: 12, height: 12, borderRadius: 6, backgroundColor: '#EEE' },
+  importanceActive: { backgroundColor: ACTIVE_COLOR },
+
+  divider: { height: 1, backgroundColor: '#F0F0F8', marginVertical: 4 },
+
+  /* Topics */
+  topicList: { gap: 8 },
+  topicItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#F8F9FF',
+    padding: 10,
+    borderRadius: 12,
+  },
+  topicName: { fontSize: 14, fontWeight: '600', color: '#5C5C8E' },
+  topicMeta: { fontSize: 12, color: '#9D9DAF', marginTop: 2 },
+
+  /* Add Topic Area */
+  addTopicArea: {
+    backgroundColor: '#F7F7FF',
+    padding: 12,
+    borderRadius: 16,
+    gap: 10,
+    marginTop: 8,
+    borderWidth: 1,
+    borderColor: '#EEF2FF',
+  },
+  addTopicLabel: { fontSize: 12, fontWeight: '700', color: ACTIVE_COLOR, textTransform: 'uppercase' },
 
   input: {
     backgroundColor: '#fff',
-    padding: 14,
-    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#EAEAFF',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    fontSize: 14,
+    color: '#5C5C8E',
   },
 
-  subjectCard: {
+  rowGap: { flexDirection: 'row', gap: 10 },
+
+  difficultyContainer: {
+    flexDirection: 'row',
     backgroundColor: '#fff',
-    padding: 14,
-    borderRadius: 16,
-    gap: 10,
+    borderWidth: 1,
+    borderColor: '#EAEAFF',
+    borderRadius: 12,
+    overflow: 'hidden',
+    height: 40,
   },
-
-  subjectHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  diffBadge: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRightWidth: 1,
+    borderRightColor: '#F7F7FF',
   },
-
-  subjectTitle: { fontWeight: '700', color: '#5C5C8E' },
-
-  exam: { fontSize: 12, color: '#F8A4B3' },
-
-  importanceRow: {},
-  importanceLevels: {
-    flexDirection: 'row',
-    gap: 6,
-    marginTop: 4,
-  },
-  importanceDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: '#DDD',
-  },
-  importanceActive: {
-    backgroundColor: '#9D96E1',
-  },
-
-  topicRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  topicText: { fontSize: 12 },
-
-  topicInputRow: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  topicInput: { flex: 1, backgroundColor: '#F7F7FF', padding: 8 },
-  minutesInput: { width: 60, backgroundColor: '#F7F7FF', padding: 8 },
-
-  difficultyRow: {},
-  difficultyBar: {
-    flexDirection: 'row',
-    gap: 6,
-    marginTop: 4,
-  },
-  difficultySegment: {
-    height: 6,
-    width: 24,
-    borderRadius: 4,
-    backgroundColor: '#EEE',
-  },
-  difficultyActive: {
-    backgroundColor: '#F8A4B3',
-  },
+  diffBadgeActive: { backgroundColor: '#F0F0FF' },
+  diffText: { fontSize: 11, fontWeight: '600', color: '#B8B8C7' },
+  diffTextActive: { color: ACTIVE_COLOR },
 
   addTopicBtn: {
     flexDirection: 'row',
+    backgroundColor: ACTIVE_COLOR,
+    padding: 10,
+    borderRadius: 12,
+    justifyContent: 'center',
     alignItems: 'center',
     gap: 6,
-    marginTop: 6,
   },
-  addTopicText: {
-    color: '#9D96E1',
-    fontWeight: '600',
-  },
+  addTopicBtnText: { color: '#fff', fontSize: 13, fontWeight: '700' },
 
-  addBtn: {
-    alignItems: 'center',
-    padding: 12,
-    backgroundColor: '#E0F7FA',
-    borderRadius: 14,
-  },
-  addText: { fontWeight: '700', color: '#00ACC1' },
-
-  dateBtn: {
+  /* New Subject Form */
+  dateSelector: {
     flexDirection: 'row',
-    gap: 8,
-    padding: 12,
+    alignItems: 'center',
+    gap: 10,
     backgroundColor: '#F8F9FF',
+    padding: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#EAEAFF',
+  },
+  dateSelectorText: { color: '#7C7C9E', fontSize: 14 },
+
+  actionRow: {
+    flexDirection: 'row',
+    gap: 10,
+    marginTop: 4,
+  },
+  addSubjectBtn: {
+    flex: 1,
+    backgroundColor: '#E0F7FA',
+    padding: 14,
     borderRadius: 14,
+    alignItems: 'center',
+  },
+  addSubjectBtnText: { color: '#00ACC1', fontWeight: '700', fontSize: 15 },
+
+  aiBtn: {
+    flex: 1,
+    backgroundColor: '#9D96E1',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 14,
+    borderRadius: 14,
+    gap: 8,
+  },
+  aiBtnDisabled: {
+    opacity: 0.7,
+  },
+  aiBtnText: {
+    color: '#fff',
+    fontWeight: '700',
+    fontSize: 15,
   },
 
+  /* Footer */
+  footer: {
+    padding: 20,
+    backgroundColor: 'transparent',
+  },
   saveBtn: {
     backgroundColor: '#9D96E1',
-    padding: 16,
+    padding: 18,
     borderRadius: 24,
     alignItems: 'center',
+    shadowColor: '#9D96E1',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 5,
   },
-  saveText: { color: '#fff', fontWeight: '700' },
+  saveText: { color: '#fff', fontSize: 16, fontWeight: '700' },
 
-  modal: { flex: 1, justifyContent: 'center' },
-
-  label: {
-    fontSize: 12,
-    color: '#666',
-  },
+  /* Modal */
+  modalOverlay: { flex: 1, backgroundColor: 'rgba(92, 92, 142, 0.2)', justifyContent: 'center', padding: 20 },
+  modalContent: { backgroundColor: '#fff', borderRadius: 20, padding: 16 },
+  modalCloseBtn: { alignSelf: 'center', padding: 10, marginTop: 10 },
+  modalCloseText: { color: '#9D96E1', fontWeight: '600' },
 });
