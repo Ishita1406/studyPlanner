@@ -2648,3 +2648,310 @@ Simulating Day: 2026-02-04
 --- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
 2026-02-01T12:34:07.500Z: Daily Capacity: 120m
 2026-02-01T12:34:07.600Z: Found 0 pending topics.
+2026-02-01T16:55:54.485Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T16:55:54.564Z: [Error] User profile not found
+2026-02-01T16:56:39.102Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T16:56:39.218Z: Daily Capacity: 120m
+2026-02-01T16:56:39.428Z: Found 0 pending topics.
+2026-02-01T16:56:44.427Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T16:56:44.520Z: Daily Capacity: 120m
+2026-02-01T16:56:44.737Z: Found 6 pending topics.
+2026-02-01T16:56:44.738Z: 
+Simulating Day: 2026-02-01
+2026-02-01T16:56:44.738Z: [Priority] Topic: Components and Props in React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.18
+2026-02-01T16:56:44.738Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.16
+2026-02-01T16:56:44.738Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.17
+2026-02-01T16:56:44.738Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.14
+2026-02-01T16:56:44.738Z: [Priority] Topic: State and Lifecycle Methods | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.19
+2026-02-01T16:56:44.738Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.18
+2026-02-01T16:56:44.738Z:   Top Candidates: State and Lifecycle Methods(0.19), Components and Props in React Native(0.18), Styling with React Native(0.18)
+2026-02-01T16:56:44.738Z:   [Schedule] State and Lifecycle Methods (45m) Fits. Total Used: 45
+2026-02-01T16:56:44.738Z:   [Schedule] Components and Props in React Native (60m) Fits. Total Used: 105
+2026-02-01T16:56:44.738Z:   [Skip] Styling with React Native (45m). Too big.
+2026-02-01T16:56:44.738Z:   [Skip] Navigating Between Screens (30m). Too big.
+2026-02-01T16:56:44.738Z:   [Skip] Introduction to React Native (45m). Too big.
+2026-02-01T16:56:44.738Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:56:44.738Z: 
+Simulating Day: 2026-02-02
+2026-02-01T16:56:44.738Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.16
+2026-02-01T16:56:44.738Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.17
+2026-02-01T16:56:44.738Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.15
+2026-02-01T16:56:44.738Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T16:56:44.738Z:   Top Candidates: Styling with React Native(0.19), Navigating Between Screens(0.17), Introduction to React Native(0.16)
+2026-02-01T16:56:44.744Z:   [Schedule] Styling with React Native (45m) Fits. Total Used: 45
+2026-02-01T16:56:44.744Z:   [Schedule] Navigating Between Screens (30m) Fits. Total Used: 75
+2026-02-01T16:56:44.744Z:   [Schedule] Introduction to React Native (45m) Fits. Total Used: 120
+2026-02-01T16:56:44.744Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:56:44.744Z: 
+Simulating Day: 2026-02-03
+2026-02-01T16:56:44.744Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.16
+2026-02-01T16:56:44.744Z:   Top Candidates: Setting Up Development Environment(0.16)
+2026-02-01T16:56:44.744Z:   [Schedule] Setting Up Development Environment (30m) Fits. Total Used: 30
+2026-02-01T16:56:44.744Z: 
+Simulating Day: 2026-02-04
+2026-02-01T16:56:44.744Z:   [Revision] State and Lifecycle Methods (20m)
+2026-02-01T16:56:44.744Z:   [Revision] Components and Props in React Native (20m)
+2026-02-01T16:56:44.744Z: 
+Simulating Day: 2026-02-05
+2026-02-01T16:56:44.744Z:   [Revision] Styling with React Native (20m)
+2026-02-01T16:56:44.744Z:   [Revision] Navigating Between Screens (20m)
+2026-02-01T16:56:44.744Z:   [Revision] Introduction to React Native (20m)
+2026-02-01T16:56:44.744Z: 
+Simulating Day: 2026-02-06
+2026-02-01T16:56:44.744Z:   [Revision] Setting Up Development Environment (20m)
+2026-02-01T16:56:45.160Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T16:56:45.258Z: Daily Capacity: 120m
+2026-02-01T16:56:45.646Z: Found 6 pending topics.
+2026-02-01T16:56:45.646Z: 
+Simulating Day: 2026-02-01
+2026-02-01T16:56:45.646Z: [Priority] Topic: Components and Props in React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.18
+2026-02-01T16:56:45.646Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.16
+2026-02-01T16:56:45.646Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.17
+2026-02-01T16:56:45.646Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.14
+2026-02-01T16:56:45.646Z: [Priority] Topic: State and Lifecycle Methods | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.19
+2026-02-01T16:56:45.646Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 25.0 | Score: 0.18
+2026-02-01T16:56:45.646Z:   Top Candidates: State and Lifecycle Methods(0.19), Components and Props in React Native(0.18), Styling with React Native(0.18)
+2026-02-01T16:56:45.646Z:   [Schedule] State and Lifecycle Methods (45m) Fits. Total Used: 45
+2026-02-01T16:56:45.647Z:   [Schedule] Components and Props in React Native (60m) Fits. Total Used: 105
+2026-02-01T16:56:45.647Z:   [Skip] Styling with React Native (45m). Too big.
+2026-02-01T16:56:45.647Z:   [Skip] Navigating Between Screens (30m). Too big.
+2026-02-01T16:56:45.647Z:   [Skip] Introduction to React Native (45m). Too big.
+2026-02-01T16:56:45.647Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:56:45.647Z: 
+Simulating Day: 2026-02-02
+2026-02-01T16:56:45.647Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.16
+2026-02-01T16:56:45.647Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.17
+2026-02-01T16:56:45.647Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.15
+2026-02-01T16:56:45.647Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T16:56:45.647Z:   Top Candidates: Styling with React Native(0.19), Navigating Between Screens(0.17), Introduction to React Native(0.16)
+2026-02-01T16:56:45.647Z:   [Schedule] Styling with React Native (45m) Fits. Total Used: 45
+2026-02-01T16:56:45.647Z:   [Schedule] Navigating Between Screens (30m) Fits. Total Used: 75
+2026-02-01T16:56:45.647Z:   [Schedule] Introduction to React Native (45m) Fits. Total Used: 120
+2026-02-01T16:56:45.647Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:56:45.647Z: 
+Simulating Day: 2026-02-03
+2026-02-01T16:56:45.647Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.16
+2026-02-01T16:56:45.647Z:   Top Candidates: Setting Up Development Environment(0.16)
+2026-02-01T16:56:45.647Z:   [Schedule] Setting Up Development Environment (30m) Fits. Total Used: 30
+2026-02-01T16:56:45.647Z: 
+Simulating Day: 2026-02-04
+2026-02-01T16:56:45.647Z:   [Revision] State and Lifecycle Methods (20m)
+2026-02-01T16:56:45.647Z:   [Revision] Components and Props in React Native (20m)
+2026-02-01T16:56:45.647Z: 
+Simulating Day: 2026-02-05
+2026-02-01T16:56:45.647Z:   [Revision] Styling with React Native (20m)
+2026-02-01T16:56:45.647Z:   [Revision] Navigating Between Screens (20m)
+2026-02-01T16:56:45.647Z:   [Revision] Introduction to React Native (20m)
+2026-02-01T16:56:45.647Z: 
+Simulating Day: 2026-02-06
+2026-02-01T16:56:45.647Z:   [Revision] Setting Up Development Environment (20m)
+2026-02-01T16:58:41.572Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-02 ---
+2026-02-01T16:58:41.667Z: Daily Capacity: 120m
+2026-02-01T16:58:41.878Z: Found 6 pending topics.
+2026-02-01T16:58:41.879Z: 
+Simulating Day: 2026-02-02
+2026-02-01T16:58:41.879Z: [Priority] Topic: Components and Props in React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T16:58:41.879Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.16
+2026-02-01T16:58:41.879Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.17
+2026-02-01T16:58:41.879Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.15
+2026-02-01T16:58:41.879Z: [Priority] Topic: State and Lifecycle Methods | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T16:58:41.879Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T16:58:41.879Z:   Top Candidates: State and Lifecycle Methods(0.19), Components and Props in React Native(0.19), Styling with React Native(0.19)
+2026-02-01T16:58:41.879Z:   [Schedule] State and Lifecycle Methods (45m) Fits. Total Used: 45
+2026-02-01T16:58:41.879Z:   [Schedule] Components and Props in React Native (60m) Fits. Total Used: 105
+2026-02-01T16:58:41.879Z:   [Skip] Styling with React Native (45m). Too big.
+2026-02-01T16:58:41.879Z:   [Skip] Navigating Between Screens (30m). Too big.
+2026-02-01T16:58:41.879Z:   [Skip] Introduction to React Native (45m). Too big.
+2026-02-01T16:58:41.879Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:58:41.879Z: 
+Simulating Day: 2026-02-03
+2026-02-01T16:58:41.879Z: [Priority] Topic: Introduction to React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.17
+2026-02-01T16:58:41.879Z: [Priority] Topic: Navigating Between Screens | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.18
+2026-02-01T16:58:41.879Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.16
+2026-02-01T16:58:41.879Z: [Priority] Topic: Styling with React Native | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T16:58:41.879Z:   Top Candidates: Styling with React Native(0.20), Navigating Between Screens(0.18), Introduction to React Native(0.17)
+2026-02-01T16:58:41.879Z:   [Schedule] Styling with React Native (45m) Fits. Total Used: 45
+2026-02-01T16:58:41.879Z:   [Schedule] Navigating Between Screens (30m) Fits. Total Used: 75
+2026-02-01T16:58:41.879Z:   [Schedule] Introduction to React Native (45m) Fits. Total Used: 120
+2026-02-01T16:58:41.879Z:   [Skip] Setting Up Development Environment (30m). Too big.
+2026-02-01T16:58:41.879Z: 
+Simulating Day: 2026-02-04
+2026-02-01T16:58:41.879Z: [Priority] Topic: Setting Up Development Environment | Subj: React native | Exam: Thu Feb 26 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.16
+2026-02-01T16:58:41.879Z:   Top Candidates: Setting Up Development Environment(0.16)
+2026-02-01T16:58:41.879Z:   [Schedule] Setting Up Development Environment (30m) Fits. Total Used: 30
+2026-02-01T16:58:41.879Z: 
+Simulating Day: 2026-02-05
+2026-02-01T16:58:41.879Z:   [Revision] State and Lifecycle Methods (20m)
+2026-02-01T16:58:41.879Z:   [Revision] Components and Props in React Native (20m)
+2026-02-01T16:58:41.879Z: 
+Simulating Day: 2026-02-06
+2026-02-01T16:58:41.879Z:   [Revision] Styling with React Native (20m)
+2026-02-01T16:58:41.880Z:   [Revision] Navigating Between Screens (20m)
+2026-02-01T16:58:41.880Z:   [Revision] Introduction to React Native (20m)
+2026-02-01T16:58:41.880Z: 
+Simulating Day: 2026-02-07
+2026-02-01T16:58:41.880Z:   [Revision] Setting Up Development Environment (20m)
+2026-02-01T18:19:11.532Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T18:19:11.561Z: Daily Capacity: 120m
+2026-02-01T18:19:11.585Z: Found 0 pending topics.
+2026-02-01T18:19:58.503Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T18:19:58.547Z: Daily Capacity: 120m
+2026-02-01T18:19:58.572Z: Found 0 pending topics.
+2026-02-01T18:20:06.386Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T18:20:06.419Z: Daily Capacity: 120m
+2026-02-01T18:20:06.621Z: Found 6 pending topics.
+2026-02-01T18:20:06.621Z: 
+Simulating Day: 2026-02-01
+2026-02-01T18:20:06.621Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.16
+2026-02-01T18:20:06.621Z: [Priority] Topic: Graph Theory Basics | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.21
+2026-02-01T18:20:06.621Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T18:20:06.621Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T18:20:06.621Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.20
+2026-02-01T18:20:06.621Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.17
+2026-02-01T18:20:06.621Z:   Top Candidates: Graph Theory Basics(0.21), Sorting Algorithms(0.20), Linked Lists(0.19)
+2026-02-01T18:20:06.621Z:   [Schedule] Graph Theory Basics (45m) Fits. Total Used: 45
+2026-02-01T18:20:06.621Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 105
+2026-02-01T18:20:06.621Z:   [Skip] Linked Lists (45m). Too big.
+2026-02-01T18:20:06.621Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T18:20:06.621Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T18:20:06.621Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:20:06.621Z: 
+Simulating Day: 2026-02-02
+2026-02-01T18:20:06.621Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.17
+2026-02-01T18:20:06.621Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:20:06.621Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:20:06.621Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.18
+2026-02-01T18:20:06.622Z:   Top Candidates: Linked Lists(0.20), Searching Algorithms(0.20), Stacks and Queues(0.18)
+2026-02-01T18:20:06.622Z:   [Schedule] Linked Lists (45m) Fits. Total Used: 45
+2026-02-01T18:20:06.622Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 75
+2026-02-01T18:20:06.622Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 120
+2026-02-01T18:20:06.622Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:20:06.622Z: 
+Simulating Day: 2026-02-03
+2026-02-01T18:20:06.622Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.18
+2026-02-01T18:20:06.622Z:   Top Candidates: Array Manipulation(0.18)
+2026-02-01T18:20:06.622Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 45
+2026-02-01T18:20:06.622Z: 
+Simulating Day: 2026-02-04
+2026-02-01T18:20:06.622Z:   [Revision] Graph Theory Basics (20m)
+2026-02-01T18:20:06.622Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T18:20:06.622Z: 
+Simulating Day: 2026-02-05
+2026-02-01T18:20:06.622Z:   [Revision] Linked Lists (20m)
+2026-02-01T18:20:06.622Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T18:20:06.622Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T18:20:06.622Z: 
+Simulating Day: 2026-02-06
+2026-02-01T18:20:06.622Z:   [Revision] Array Manipulation (20m)
+2026-02-01T18:20:07.132Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-01 ---
+2026-02-01T18:20:07.158Z: Daily Capacity: 120m
+2026-02-01T18:20:07.291Z: Found 6 pending topics.
+2026-02-01T18:20:07.291Z: 
+Simulating Day: 2026-02-01
+2026-02-01T18:20:07.291Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.16
+2026-02-01T18:20:07.291Z: [Priority] Topic: Graph Theory Basics | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.21
+2026-02-01T18:20:07.291Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T18:20:07.291Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.19
+2026-02-01T18:20:07.291Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.20
+2026-02-01T18:20:07.291Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 24.0 | Score: 0.17
+2026-02-01T18:20:07.291Z:   Top Candidates: Graph Theory Basics(0.21), Sorting Algorithms(0.20), Linked Lists(0.19)
+2026-02-01T18:20:07.291Z:   [Schedule] Graph Theory Basics (45m) Fits. Total Used: 45
+2026-02-01T18:20:07.291Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 105
+2026-02-01T18:20:07.291Z:   [Skip] Linked Lists (45m). Too big.
+2026-02-01T18:20:07.291Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T18:20:07.291Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T18:20:07.291Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:20:07.291Z: 
+Simulating Day: 2026-02-02
+2026-02-01T18:20:07.291Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.17
+2026-02-01T18:20:07.291Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:20:07.292Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:20:07.292Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.18
+2026-02-01T18:20:07.292Z:   Top Candidates: Linked Lists(0.20), Searching Algorithms(0.20), Stacks and Queues(0.18)
+2026-02-01T18:20:07.292Z:   [Schedule] Linked Lists (45m) Fits. Total Used: 45
+2026-02-01T18:20:07.292Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 75
+2026-02-01T18:20:07.292Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 120
+2026-02-01T18:20:07.292Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:20:07.292Z: 
+Simulating Day: 2026-02-03
+2026-02-01T18:20:07.292Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.18
+2026-02-01T18:20:07.292Z:   Top Candidates: Array Manipulation(0.18)
+2026-02-01T18:20:07.292Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 45
+2026-02-01T18:20:07.292Z: 
+Simulating Day: 2026-02-04
+2026-02-01T18:20:07.292Z:   [Revision] Graph Theory Basics (20m)
+2026-02-01T18:20:07.292Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T18:20:07.292Z: 
+Simulating Day: 2026-02-05
+2026-02-01T18:20:07.292Z:   [Revision] Linked Lists (20m)
+2026-02-01T18:20:07.292Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T18:20:07.292Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T18:20:07.292Z: 
+Simulating Day: 2026-02-06
+2026-02-01T18:20:07.292Z:   [Revision] Array Manipulation (20m)
+2026-02-01T18:22:01.802Z: 
+
+--- Generating Schedule for 697f848267864f0a694a032f starting 2026-02-02 ---
+2026-02-01T18:22:01.861Z: Daily Capacity: 120m
+2026-02-01T18:22:02.198Z: Found 6 pending topics.
+2026-02-01T18:22:02.199Z: 
+Simulating Day: 2026-02-02
+2026-02-01T18:22:02.199Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.17
+2026-02-01T18:22:02.199Z: [Priority] Topic: Graph Theory Basics | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.23
+2026-02-01T18:22:02.199Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:22:02.199Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.20
+2026-02-01T18:22:02.199Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.21
+2026-02-01T18:22:02.199Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 23.0 | Score: 0.18
+2026-02-01T18:22:02.199Z:   Top Candidates: Graph Theory Basics(0.23), Sorting Algorithms(0.21), Linked Lists(0.20)
+2026-02-01T18:22:02.199Z:   [Schedule] Graph Theory Basics (45m) Fits. Total Used: 45
+2026-02-01T18:22:02.199Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 105
+2026-02-01T18:22:02.199Z:   [Skip] Linked Lists (45m). Too big.
+2026-02-01T18:22:02.199Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T18:22:02.199Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T18:22:02.199Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:22:02.199Z: 
+Simulating Day: 2026-02-03
+2026-02-01T18:22:02.199Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.18
+2026-02-01T18:22:02.199Z: [Priority] Topic: Linked Lists | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.20
+2026-02-01T18:22:02.199Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.20
+2026-02-01T18:22:02.199Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 22.0 | Score: 0.19
+2026-02-01T18:22:02.199Z:   Top Candidates: Linked Lists(0.20), Searching Algorithms(0.20), Stacks and Queues(0.19)
+2026-02-01T18:22:02.199Z:   [Schedule] Linked Lists (45m) Fits. Total Used: 45
+2026-02-01T18:22:02.199Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 75
+2026-02-01T18:22:02.199Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 120
+2026-02-01T18:22:02.199Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T18:22:02.199Z: 
+Simulating Day: 2026-02-04
+2026-02-01T18:22:02.199Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Wed Feb 25 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 21.0 | Score: 0.19
+2026-02-01T18:22:02.199Z:   Top Candidates: Array Manipulation(0.19)
+2026-02-01T18:22:02.199Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 45
+2026-02-01T18:22:02.199Z: 
+Simulating Day: 2026-02-05
+2026-02-01T18:22:02.199Z:   [Revision] Graph Theory Basics (20m)
+2026-02-01T18:22:02.199Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T18:22:02.200Z: 
+Simulating Day: 2026-02-06
+2026-02-01T18:22:02.200Z:   [Revision] Linked Lists (20m)
+2026-02-01T18:22:02.200Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T18:22:02.200Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T18:22:02.200Z: 
+Simulating Day: 2026-02-07
+2026-02-01T18:22:02.200Z:   [Revision] Array Manipulation (20m)

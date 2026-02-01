@@ -207,12 +207,13 @@ const TodaysPlanScreen = () => {
 
           <View style={styles.hoursContainer}>
             <Text style={styles.hoursLabel}>How many hours today?</Text>
-            <TextInput
+            <TextInput 
               style={styles.input}
               value={dailyHours}
               onChangeText={setDailyHours}
               keyboardType="numeric"
-              placeholder="2"
+              placeholder="Enter hours"
+              placeholderTextColor="#aaa"
             />
           </View>
 

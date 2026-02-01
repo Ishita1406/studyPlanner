@@ -14,7 +14,7 @@ const getApiUrl = () => {
 
   // return "http://192.168.1.20:8000";
 
-  return 'http://10.51.13.187:8000';
+  return 'http://100.129.173.98:8000';
 
 
 };
