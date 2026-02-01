@@ -1,6 +1,7 @@
+// Imports
 import DailyStudyPlan from "../models/dailyStudyPlan.model.js";
 import Topic from "../models/topics.model.js";
-import { generateDailyPlan } from "../utils/scheduler.js";
+import { generateFullSchedule } from "../utils/scheduler.js";
 
 export const getTodayPlan = async (req, res) => {
   try {
@@ -14,19 +15,26 @@ export const getTodayPlan = async (req, res) => {
       date: today,
     }).populate("tasks.topic", "name subject");
 
-    // 🧠 Auto-generate if missing
+    let warning = null;
+
+    // 🧠 Auto-generate FULL SCHEDULE if missing
     if (!plan) {
-      const newPlan = await generateDailyPlan(userId);
-      if (!newPlan) {
+      const result = await generateFullSchedule(userId, today);
+      if (!result.plan) {
         return res.status(404).json({ message: "No plan available" });
       }
-
-      plan = await DailyStudyPlan
-        .findById(newPlan._id)
-        .populate("tasks.topic", "name subject");
+      plan = result.plan;
+      if (result.insufficientTime) {
+        warning = "Not enough time to complete all topics before exams.";
+      }
+      if (result.missingExamSubjects && result.missingExamSubjects.length > 0) {
+        const subjects = result.missingExamSubjects.join(", ");
+        const msg = `Missing exam dates for: ${subjects}. Please update setup.`;
+        warning = warning ? warning + "\n" + msg : msg;
+      }
     }
 
-    return res.status(200).json({ plan });
+    return res.status(200).json({ plan, warning });
   } catch (error) {
     console.error("Get today plan error:", error);
     return res.status(500).json({ message: "Internal server error" });
@@ -92,30 +100,45 @@ export const regeneratePlan = async (req, res) => {
     if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
     const today = new Date().toISOString().split("T")[0];
+    const { skip } = req.body;
 
-    // 🔥 DELETE TODAY'S PLAN
-    await DailyStudyPlan.deleteOne({
-      user: userId,
-      date: today,
-    });
+    // Determine start date for generation
+    let startDate = today;
+    if (skip) {
+      const d = new Date();
+      d.setDate(d.getDate() + 1);
+      startDate = d.toISOString().split("T")[0];
+    }
 
-    // 🔁 Generate fresh plan
-    const plan = await generateDailyPlan(userId);
+    // REPEAT: Delete handled inside generateFullSchedule now? 
+    // Actually scheduler.js deletes future plans. 
+    // WE MUST DELETE TODAY MANUALLY IF SKIPPING
+    if (skip) {
+      await DailyStudyPlan.deleteOne({ user: userId, date: today });
+    }
 
-    if (!plan) {
+    // 🔁 Generate FULL schedule
+    const result = await generateFullSchedule(userId, startDate);
+
+    if (!result.plan) {
       return res.status(200).json({
         message: "No pending topics to schedule.",
         plan: null,
       });
     }
 
-    const populatedPlan = await DailyStudyPlan
-      .findById(plan._id)
-      .populate("tasks.topic", "name subject");
+    // Construct warning
+    let warning = result.insufficientTime ? "Not enough time to complete all topics before exams." : null;
+    if (result.missingExamSubjects && result.missingExamSubjects.length > 0) {
+      const subjects = result.missingExamSubjects.join(", ");
+      const msg = `Missing exam dates for: ${subjects}. Please update setup.`;
+      warning = warning ? warning + "\n" + msg : msg;
+    }
 
     return res.status(200).json({
       message: "Study plan regenerated successfully",
-      plan: populatedPlan,
+      plan: result.plan,
+      warning
     });
   } catch (error) {
     console.error("Regenerate plan error:", error);

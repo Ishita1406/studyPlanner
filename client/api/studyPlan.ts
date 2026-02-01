@@ -7,12 +7,15 @@ import client from './client'; // adjust path if needed
 export const getTodayPlan = async () => {
   const res = await client.get('/study-plan/today');
 
-  // Backend returns: { plan }
+  // Backend returns: { plan, warning }
   if (!res.data?.plan) {
-    throw new Error('No plan returned');
+    // It's possible we just generated it and it returned null if empty, 
+    // but usually getToday returns 404 if truly nothing.
+    // If it returns 200 but plan is null, that's empty state.
+    return { plan: null, warning: res.data?.warning };
   }
 
-  return res.data.plan;
+  return { plan: res.data.plan, warning: res.data.warning };
 };
 
 /* ----------------------------------
@@ -30,16 +33,15 @@ export const generatePlan = async () => {
    REGENERATE / SKIP DAY
 ----------------------------------- */
 
-export const regeneratePlan = async () => {
-  const res = await client.post('/study-plan/regenerate');
+export const regeneratePlan = async (skip: boolean = false) => {
+  const res = await client.post('/study-plan/regenerate', { skip });
 
-  // Backend returns: { message, plan }
-  // If no plan (e.g. no topics), return null instead of throwing
+  // Backend returns: { message, plan, warning }
   if (!res.data?.plan) {
-    return null;
+    return { plan: null, warning: res.data?.warning };
   }
 
-  return res.data.plan;
+  return { plan: res.data.plan, warning: res.data.warning };
 };
 
 /* ----------------------------------

@@ -31,8 +31,11 @@ const TodaysPlanScreen = () => {
   const fetchPlan = async () => {
     setLoading(true);
     try {
-      const response = await getTodayPlan();
-      setPlan(response);
+      const { plan, warning } = await getTodayPlan();
+      setPlan(plan);
+      if (warning) {
+        Alert.alert("Warning", warning);
+      }
     } catch (error: any) {
       if (error?.response?.status !== 404) {
         Alert.alert("Error", "Failed to load today's plan");
@@ -77,9 +80,30 @@ const TodaysPlanScreen = () => {
   const handleSkipDay = async () => {
     setRecalibrating(true);
     try {
-      const response = await regeneratePlan();
-      setPlan(response);
-      Alert.alert("Success", "Plan recalibrated for today!");
+      const { plan, warning } = await regeneratePlan(true);
+      setPlan(plan); // This might be null if we skipped today!
+
+      // If we skipped, plan is for tomorrow (or whatever generated). 
+      // But getTodayPlan (which might be called by effect) would fetch today.
+      // If we skipped today, today has NO plan.
+      // So setPlan(null) or fetchPlan() again? 
+      // If plan returns null (because it returned tomorrow's plan?), we should clear today.
+
+      // Actually regeneratePlan returns the result of generateFullSchedule.
+      // generateFullSchedule returns the plan for startDate.
+      // If startDate = tomorrow, it returns tomorrow's plan.
+      // But this screen is "Today's Plan". So we should probably setPlan(null) explicitly if we skipped.
+
+      if (!plan || plan.date !== new Date().toISOString().split('T')[0]) {
+        setPlan(null);
+      } else {
+        setPlan(plan);
+      }
+
+      if (warning) {
+        Alert.alert("Warning", warning);
+      }
+      Alert.alert("Success", "Plan recalibrated! Future schedule has been shifted.");
     } catch {
       Alert.alert("Error", "Failed to recalibrate plan");
     } finally {
@@ -94,9 +118,12 @@ const TodaysPlanScreen = () => {
       await updateProfile({ maxDailyMinutes: Number(dailyHours) * 60 });
 
       // 2. Generate Plan
-      const response = await regeneratePlan();
-      setPlan(response);
-      Alert.alert("Success", "Study plan generated for today!");
+      const { plan, warning } = await regeneratePlan();
+      setPlan(plan);
+      if (warning) {
+        Alert.alert("Warning", warning);
+      }
+      Alert.alert("Success", "Study plan generated! Check Calendar for full schedule.");
     } catch (err: any) {
       console.error(err);
       Alert.alert("Error", "Failed to generate today's plan");
@@ -220,6 +247,7 @@ const TodaysPlanScreen = () => {
                       ]}
                     >
                       {index + 1}. {item.topic.name}
+                      {item.isRevision && <Text style={{ color: '#F8A4B3', fontSize: 12 }}> (Revision)</Text>}
                     </Text>
                     <Text style={styles.taskMeta}>
                       {isDone

@@ -158,6 +158,7 @@ const StudyCalendarScreen = () => {
                   <Text style={{ fontWeight: '700' }}>
                     {task.plannedMinutes}m
                   </Text>
+                  {task.isRevision && <Text style={{ color: '#F8A4B3', fontWeight: '700' }}> (Revision)</Text>}
                 </Text>
               </View>
             ))}

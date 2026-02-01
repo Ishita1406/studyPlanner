@@ -1,0 +1,2650 @@
+2026-02-01T12:32:40.038Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-02 ---
+2026-02-01T12:32:40.069Z: Daily Capacity: 60m
+2026-02-01T12:32:40.281Z: Found 11 pending topics.
+2026-02-01T12:32:40.282Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:32:40.282Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.282Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:32:40.282Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:32:40.282Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:32:40.282Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:32:40.282Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:32:40.282Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:32:40.282Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:32:40.282Z:   [Skip] Hash Tables (30m). Too big.
+2026-02-01T12:32:40.283Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T12:32:40.283Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:40.283Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:40.283Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:32:40.283Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.283Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:32:40.283Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.50
+2026-02-01T12:32:40.283Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.47
+2026-02-01T12:32:40.283Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:32:40.283Z:   Top Candidates: Hash Tables(0.50), Searching Algorithms(0.47), Stacks and Queues(0.44)
+2026-02-01T12:32:40.283Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 30
+2026-02-01T12:32:40.283Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 60
+2026-02-01T12:32:40.283Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:40.283Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:40.283Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:32:40.283Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.283Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 15.0 | Score: 0.43
+2026-02-01T12:32:40.283Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 15.0 | Score: 0.47
+2026-02-01T12:32:40.283Z:   Top Candidates: Stacks and Queues(0.47), Array Manipulation(0.43)
+2026-02-01T12:32:40.283Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:32:40.283Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:40.283Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:32:40.283Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:32:40.283Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.283Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 14.0 | Score: 0.46
+2026-02-01T12:32:40.283Z:   Top Candidates: Array Manipulation(0.46)
+2026-02-01T12:32:40.283Z:   [Schedule] Array Manipulation (45m) ForceFit. Total Used: 65
+2026-02-01T12:32:40.283Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:32:40.284Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:32:40.284Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-07
+2026-02-01T12:32:40.284Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-08
+2026-02-01T12:32:40.284Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-09
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-10
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-11
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-12
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-13
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-14
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-15
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-16
+2026-02-01T12:32:40.284Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.284Z: 
+Simulating Day: 2026-02-17
+2026-02-01T12:32:40.285Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.285Z: 
+Simulating Day: 2026-02-18
+2026-02-01T12:32:40.285Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.285Z: 
+Simulating Day: 2026-02-19
+2026-02-01T12:32:40.285Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.285Z: 
+Simulating Day: 2026-02-20
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-21
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-22
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-23
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-24
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-25
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-26
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-27
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-02-28
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-01
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-02
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-03
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-04
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-05
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-06
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-07
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-08
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-09
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-10
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-11
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-12
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-13
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.286Z: 
+Simulating Day: 2026-03-14
+2026-02-01T12:32:40.286Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-15
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-16
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-17
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-18
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-19
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-20
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-21
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-22
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-23
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-24
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-25
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-26
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-27
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-28
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-29
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-30
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-03-31
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-01
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-02
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-03
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-04
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-05
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-06
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-07
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-08
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-09
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.287Z: 
+Simulating Day: 2026-04-10
+2026-02-01T12:32:40.287Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-11
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-12
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-13
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-14
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-15
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-16
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-17
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-18
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-19
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-20
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-21
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-22
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-23
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-24
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-25
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-26
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-27
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-28
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-29
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-04-30
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-01
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-02
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-03
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-04
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-05
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.288Z: 
+Simulating Day: 2026-05-06
+2026-02-01T12:32:40.288Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-07
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-08
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-09
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-10
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-11
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-12
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-13
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-14
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-15
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-16
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-17
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-18
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-19
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-20
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-21
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-22
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-23
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-24
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-25
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-26
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-27
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-28
+2026-02-01T12:32:40.289Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.289Z: 
+Simulating Day: 2026-05-29
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-05-30
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-05-31
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-01
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-02
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-03
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-04
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-05
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-06
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-07
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-08
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-09
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-10
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-11
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-12
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-13
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-14
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-15
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-16
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-17
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-18
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-19
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-20
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-21
+2026-02-01T12:32:40.290Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.290Z: 
+Simulating Day: 2026-06-22
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-23
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-24
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-25
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-26
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-27
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-28
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-29
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-06-30
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-01
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-02
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-03
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-04
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-05
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-06
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-07
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-08
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-09
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-10
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-11
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-12
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-13
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-14
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-15
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-16
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-17
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-18
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-19
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-20
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-21
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-22
+2026-02-01T12:32:40.291Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.291Z: 
+Simulating Day: 2026-07-23
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-24
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-25
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-26
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-27
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-28
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-29
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-30
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: 
+Simulating Day: 2026-07-31
+2026-02-01T12:32:40.292Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:32:40.292Z: [Warning] Insufficient Time. Remaining Topics: 6
+2026-02-01T12:32:42.222Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:32:42.305Z: Daily Capacity: 120m
+2026-02-01T12:32:42.511Z: Found 11 pending topics.
+2026-02-01T12:32:42.512Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:32:42.512Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:32:42.512Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:32:42.512Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:32:42.512Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:32:42.512Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:32:42.512Z: [Priority] Topic: Backpropagation Algorithm | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:32:42.512Z: [Priority] Topic: Convolutional Neural Networks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.80
+2026-02-01T12:32:42.512Z: [Priority] Topic: Deep Learning Frameworks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.00
+2026-02-01T12:32:42.512Z: [Priority] Topic: Neural Network Basics | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 5.20
+2026-02-01T12:32:42.512Z: [Priority] Topic: Optimization Algorithms | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:32:42.512Z: [Priority] Topic: Recurrent Neural Networks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 7.20
+2026-02-01T12:32:42.512Z:   Top Candidates: Recurrent Neural Networks(7.20), Convolutional Neural Networks(6.80), Backpropagation Algorithm(6.40)
+2026-02-01T12:32:42.512Z:   [Schedule] Recurrent Neural Networks (45m) Fits. Total Used: 45
+2026-02-01T12:32:42.512Z:   [Schedule] Convolutional Neural Networks (45m) Fits. Total Used: 90
+2026-02-01T12:32:42.512Z:   [Schedule] Backpropagation Algorithm (30m) Fits. Total Used: 120
+2026-02-01T12:32:42.512Z:   [Skip] Optimization Algorithms (30m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Deep Learning Frameworks (30m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Neural Network Basics (45m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Sorting Algorithms (60m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Hash Tables (30m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:42.512Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:32:42.512Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.512Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:32:42.512Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:32:42.512Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:32:42.512Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:32:42.512Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:32:42.512Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:32:42.512Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:32:42.512Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:32:42.512Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:32:42.512Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:42.512Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:42.512Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:32:42.512Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.512Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:32:42.512Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:32:42.512Z:   Top Candidates: Stacks and Queues(0.44), Array Manipulation(0.41)
+2026-02-01T12:32:42.513Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:32:42.513Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:32:42.513Z:   [Drop Revision] Recurrent Neural Networks (Exam passed/today)
+2026-02-01T12:32:42.513Z:   [Drop Revision] Convolutional Neural Networks (Exam passed/today)
+2026-02-01T12:32:42.513Z:   [Drop Revision] Backpropagation Algorithm (Exam passed/today)
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:32:42.513Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:32:42.513Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:32:42.513Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:32:42.513Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:32:42.513Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-07
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-08
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-09
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-10
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-11
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.513Z: 
+Simulating Day: 2026-02-12
+2026-02-01T12:32:42.513Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-13
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-14
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-15
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-16
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-17
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-18
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-19
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-20
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-21
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-22
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-23
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-24
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-25
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-26
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-27
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-02-28
+2026-02-01T12:32:42.514Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.514Z: 
+Simulating Day: 2026-03-01
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-02
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-03
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-04
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-05
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-06
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-07
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-08
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-09
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-10
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-11
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-12
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-13
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-14
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-15
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-16
+2026-02-01T12:32:42.515Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.515Z: 
+Simulating Day: 2026-03-17
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-18
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-19
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-20
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-21
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-22
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-23
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-24
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-25
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-26
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-27
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-28
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-29
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-30
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-03-31
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-01
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-02
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-03
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-04
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-05
+2026-02-01T12:32:42.516Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.516Z: 
+Simulating Day: 2026-04-06
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-07
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-08
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-09
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-10
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-11
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-12
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-13
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-14
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-15
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-16
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-17
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-18
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-19
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-20
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-21
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-22
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-23
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-24
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-25
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-26
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-27
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-28
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-29
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-04-30
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-01
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-02
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-03
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-04
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-05
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-06
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-07
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-08
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-09
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-10
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.517Z: 
+Simulating Day: 2026-05-11
+2026-02-01T12:32:42.517Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-12
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-13
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-14
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-15
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-16
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-17
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-18
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-19
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-20
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-21
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-22
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-23
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-24
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-25
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-26
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-27
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-28
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-29
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-30
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-05-31
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-01
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-02
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-03
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-04
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-05
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-06
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-07
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-08
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-09
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-10
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-11
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-12
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.518Z: 
+Simulating Day: 2026-06-13
+2026-02-01T12:32:42.518Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-14
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-15
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-16
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-17
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-18
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-19
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-20
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-21
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-22
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-23
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-24
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-25
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-26
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-27
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-28
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-29
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-06-30
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-01
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-02
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-03
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-04
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-05
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-06
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-07
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-08
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-09
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-10
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-11
+2026-02-01T12:32:42.519Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.519Z: 
+Simulating Day: 2026-07-12
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-13
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-14
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-15
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-16
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-17
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-18
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-19
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-20
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-21
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-22
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-23
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-24
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-25
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-26
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-27
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-28
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-29
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: 
+Simulating Day: 2026-07-30
+2026-02-01T12:32:42.520Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:42.520Z: [Warning] Insufficient Time. Remaining Topics: 3
+2026-02-01T12:32:42.929Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:32:43.021Z: Daily Capacity: 120m
+2026-02-01T12:32:43.244Z: Found 11 pending topics.
+2026-02-01T12:32:43.245Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:32:43.245Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:32:43.245Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:32:43.245Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:32:43.245Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:32:43.245Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:32:43.245Z: [Priority] Topic: Backpropagation Algorithm | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:32:43.245Z: [Priority] Topic: Convolutional Neural Networks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.80
+2026-02-01T12:32:43.245Z: [Priority] Topic: Deep Learning Frameworks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.00
+2026-02-01T12:32:43.245Z: [Priority] Topic: Neural Network Basics | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 5.20
+2026-02-01T12:32:43.245Z: [Priority] Topic: Optimization Algorithms | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:32:43.245Z: [Priority] Topic: Recurrent Neural Networks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 7.20
+2026-02-01T12:32:43.245Z:   Top Candidates: Recurrent Neural Networks(7.20), Convolutional Neural Networks(6.80), Backpropagation Algorithm(6.40)
+2026-02-01T12:32:43.245Z:   [Schedule] Recurrent Neural Networks (45m) Fits. Total Used: 45
+2026-02-01T12:32:43.245Z:   [Schedule] Convolutional Neural Networks (45m) Fits. Total Used: 90
+2026-02-01T12:32:43.245Z:   [Schedule] Backpropagation Algorithm (30m) Fits. Total Used: 120
+2026-02-01T12:32:43.245Z:   [Skip] Optimization Algorithms (30m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Deep Learning Frameworks (30m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Neural Network Basics (45m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Sorting Algorithms (60m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Hash Tables (30m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:43.245Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:43.245Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:32:43.245Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.245Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:32:43.246Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:32:43.246Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:32:43.246Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:32:43.246Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:32:43.246Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:32:43.246Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:32:43.246Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:32:43.246Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:32:43.246Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:32:43.246Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:32:43.246Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:32:43.246Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.246Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:32:43.246Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:32:43.246Z:   Top Candidates: Stacks and Queues(0.44), Array Manipulation(0.41)
+2026-02-01T12:32:43.246Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:32:43.246Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:32:43.246Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:32:43.246Z:   [Drop Revision] Recurrent Neural Networks (Exam passed/today)
+2026-02-01T12:32:43.246Z:   [Drop Revision] Convolutional Neural Networks (Exam passed/today)
+2026-02-01T12:32:43.246Z:   [Drop Revision] Backpropagation Algorithm (Exam passed/today)
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:32:43.247Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:32:43.247Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:32:43.247Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:32:43.247Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:32:43.247Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-07
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-08
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-09
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-10
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-11
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-12
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-13
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-14
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-15
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-16
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-17
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-18
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-19
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.247Z: 
+Simulating Day: 2026-02-20
+2026-02-01T12:32:43.247Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-21
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-22
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-23
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-24
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-25
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-26
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-27
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-02-28
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-01
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-02
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-03
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-04
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-05
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-06
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-07
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-08
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-09
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-10
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-11
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-12
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-13
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-14
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-15
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-16
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-17
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-18
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-19
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-20
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-21
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.248Z: 
+Simulating Day: 2026-03-22
+2026-02-01T12:32:43.248Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-23
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-24
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-25
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-26
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-27
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-28
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-29
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-30
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-03-31
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-01
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-02
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-03
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-04
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-05
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-06
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-07
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-08
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-09
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-10
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-11
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-12
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-13
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-14
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-15
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-16
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-17
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-18
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-19
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-20
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-21
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-22
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-23
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-24
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-25
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.249Z: 
+Simulating Day: 2026-04-26
+2026-02-01T12:32:43.249Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-04-27
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-04-28
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-04-29
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-04-30
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-01
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-02
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-03
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-04
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-05
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-06
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-07
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-08
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-09
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-10
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-11
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-12
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-13
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-14
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-15
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-16
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-17
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-18
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-19
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-20
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-21
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-22
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-23
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-24
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-25
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-26
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-27
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-28
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-29
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-30
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-05-31
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.250Z: 
+Simulating Day: 2026-06-01
+2026-02-01T12:32:43.250Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-02
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-03
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-04
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-05
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-06
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-07
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-08
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-09
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-10
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-11
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-12
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-13
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-14
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-15
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-16
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-17
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-18
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-19
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-20
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-21
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-22
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-23
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-24
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-25
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-26
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-27
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-28
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-29
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-06-30
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-01
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-02
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-03
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-04
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-05
+2026-02-01T12:32:43.251Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.251Z: 
+Simulating Day: 2026-07-06
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-07
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-08
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-09
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-10
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-11
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-12
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-13
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-14
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-15
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-16
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-17
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-18
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-19
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-20
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-21
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-22
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-23
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-24
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-25
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-26
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-27
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-28
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-29
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: 
+Simulating Day: 2026-07-30
+2026-02-01T12:32:43.252Z:   [Drop] 3 topics (Exam dates passed/today).
+2026-02-01T12:32:43.252Z: [Warning] Insufficient Time. Remaining Topics: 3
+2026-02-01T12:33:23.048Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:23.075Z: Daily Capacity: 120m
+2026-02-01T12:33:23.560Z: Found 8 pending topics.
+2026-02-01T12:33:23.561Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:23.561Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:23.561Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:23.561Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:23.561Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:23.561Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:23.561Z: [Priority] Topic: Deep Learning Frameworks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.00
+2026-02-01T12:33:23.561Z: [Priority] Topic: Neural Network Basics | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 5.20
+2026-02-01T12:33:23.561Z: [Priority] Topic: Optimization Algorithms | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:33:23.561Z:   Top Candidates: Optimization Algorithms(6.40), Deep Learning Frameworks(6.00), Neural Network Basics(5.20)
+2026-02-01T12:33:23.561Z:   [Schedule] Optimization Algorithms (30m) Fits. Total Used: 30
+2026-02-01T12:33:23.562Z:   [Schedule] Deep Learning Frameworks (30m) Fits. Total Used: 60
+2026-02-01T12:33:23.562Z:   [Schedule] Neural Network Basics (45m) Fits. Total Used: 105
+2026-02-01T12:33:23.562Z:   [Skip] Sorting Algorithms (60m). Too big.
+2026-02-01T12:33:23.562Z:   [Skip] Hash Tables (30m). Too big.
+2026-02-01T12:33:23.562Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T12:33:23.562Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:23.562Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:23.562Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:23.562Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:23.562Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:33:23.562Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:33:23.562Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:33:23.562Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:23.562Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:33:23.562Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:23.562Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:23.562Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:23.562Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:23.562Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:23.562Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:23.562Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:33:23.562Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:33:23.562Z:   Top Candidates: Stacks and Queues(0.44), Array Manipulation(0.41)
+2026-02-01T12:33:23.562Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:23.562Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:23.562Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:23.563Z:   [Drop Revision] Optimization Algorithms (Exam passed/today)
+2026-02-01T12:33:23.563Z:   [Drop Revision] Deep Learning Frameworks (Exam passed/today)
+2026-02-01T12:33:23.563Z:   [Drop Revision] Neural Network Basics (Exam passed/today)
+2026-02-01T12:33:23.563Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:23.563Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:23.563Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:23.563Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:23.563Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:33:23.563Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:23.563Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:23.998Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:24.184Z: Daily Capacity: 120m
+2026-02-01T12:33:24.484Z: Found 8 pending topics.
+2026-02-01T12:33:24.485Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:24.485Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:24.485Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:24.485Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:24.485Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:24.485Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:24.486Z: [Priority] Topic: Deep Learning Frameworks | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.00
+2026-02-01T12:33:24.486Z: [Priority] Topic: Neural Network Basics | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 5.20
+2026-02-01T12:33:24.486Z: [Priority] Topic: Optimization Algorithms | Subj: Deep learning | Exam: Mon Feb 02 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 1.0 | Score: 6.40
+2026-02-01T12:33:24.486Z:   Top Candidates: Optimization Algorithms(6.40), Deep Learning Frameworks(6.00), Neural Network Basics(5.20)
+2026-02-01T12:33:24.486Z:   [Schedule] Optimization Algorithms (30m) Fits. Total Used: 30
+2026-02-01T12:33:24.486Z:   [Schedule] Deep Learning Frameworks (30m) Fits. Total Used: 60
+2026-02-01T12:33:24.486Z:   [Schedule] Neural Network Basics (45m) Fits. Total Used: 105
+2026-02-01T12:33:24.486Z:   [Skip] Sorting Algorithms (60m). Too big.
+2026-02-01T12:33:24.486Z:   [Skip] Hash Tables (30m). Too big.
+2026-02-01T12:33:24.486Z:   [Skip] Searching Algorithms (30m). Too big.
+2026-02-01T12:33:24.486Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:24.486Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:24.486Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:24.486Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:24.486Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:33:24.486Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:33:24.486Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:33:24.486Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:24.486Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:33:24.486Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:24.486Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:24.486Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:24.486Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:24.486Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:24.486Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:24.486Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:33:24.486Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:33:24.486Z:   Top Candidates: Stacks and Queues(0.44), Array Manipulation(0.41)
+2026-02-01T12:33:24.486Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:24.486Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:24.486Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:24.486Z:   [Drop Revision] Optimization Algorithms (Exam passed/today)
+2026-02-01T12:33:24.486Z:   [Drop Revision] Deep Learning Frameworks (Exam passed/today)
+2026-02-01T12:33:24.487Z:   [Drop Revision] Neural Network Basics (Exam passed/today)
+2026-02-01T12:33:24.487Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:24.487Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:24.487Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:24.487Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:24.487Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:33:24.487Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:24.487Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:40.380Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:40.485Z: Daily Capacity: 120m
+2026-02-01T12:33:40.632Z: Found 5 pending topics.
+2026-02-01T12:33:40.633Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:40.633Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:40.633Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:40.634Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:40.634Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:40.634Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:40.634Z:   Top Candidates: Sorting Algorithms(0.47), Hash Tables(0.44), Searching Algorithms(0.42)
+2026-02-01T12:33:40.634Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:40.634Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:40.634Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:40.634Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:40.634Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:40.634Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:40.634Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:40.634Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:40.634Z:   Top Candidates: Stacks and Queues(0.41), Array Manipulation(0.38)
+2026-02-01T12:33:40.634Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:40.634Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:40.634Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:40.634Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:40.635Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:40.635Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:40.635Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:40.635Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:40.635Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:40.635Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:41.016Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:41.072Z: Daily Capacity: 120m
+2026-02-01T12:33:41.283Z: Found 5 pending topics.
+2026-02-01T12:33:41.283Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:41.283Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:41.283Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:41.283Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:41.283Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:41.283Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:41.283Z:   Top Candidates: Sorting Algorithms(0.47), Hash Tables(0.44), Searching Algorithms(0.42)
+2026-02-01T12:33:41.283Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:41.283Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:41.283Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:41.283Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:41.283Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:41.283Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:41.283Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:41.283Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:41.283Z:   Top Candidates: Stacks and Queues(0.41), Array Manipulation(0.38)
+2026-02-01T12:33:41.283Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:41.283Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:41.284Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:41.284Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:41.284Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:41.284Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:41.284Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:41.284Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:41.284Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:41.284Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:47.141Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-02 ---
+2026-02-01T12:33:47.356Z: Daily Capacity: 120m
+2026-02-01T12:33:47.635Z: Found 11 pending topics.
+2026-02-01T12:33:47.636Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:47.636Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.636Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:47.636Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.47
+2026-02-01T12:33:47.636Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.44
+2026-02-01T12:33:47.637Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.50
+2026-02-01T12:33:47.637Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:47.637Z:   Top Candidates: Sorting Algorithms(0.50), Hash Tables(0.47), Searching Algorithms(0.44)
+2026-02-01T12:33:47.637Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:47.637Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:47.637Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:47.637Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:47.637Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.41
+2026-02-01T12:33:47.637Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 16.0 | Score: 0.44
+2026-02-01T12:33:47.637Z:   Top Candidates: Stacks and Queues(0.44), Array Manipulation(0.41)
+2026-02-01T12:33:47.637Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:47.637Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:47.637Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:47.637Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:47.637Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-06
+2026-02-01T12:33:47.637Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:47.637Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-07
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-08
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-09
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-10
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-11
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-12
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-13
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-14
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-15
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.637Z: 
+Simulating Day: 2026-02-16
+2026-02-01T12:33:47.637Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-17
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-18
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-19
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-20
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-21
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-22
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-23
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-24
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-25
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-26
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-27
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-02-28
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-01
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-02
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-03
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-04
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-05
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-06
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-07
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-08
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-09
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-10
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-11
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-12
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-13
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.638Z: 
+Simulating Day: 2026-03-14
+2026-02-01T12:33:47.638Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-15
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-16
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-17
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-18
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-19
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-20
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-21
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-22
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-23
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-24
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-25
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-26
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-27
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-28
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-29
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-30
+2026-02-01T12:33:47.639Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.639Z: 
+Simulating Day: 2026-03-31
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-01
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-02
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-03
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-04
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-05
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-06
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-07
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-08
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-09
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-10
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-11
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-12
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-13
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-14
+2026-02-01T12:33:47.640Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.640Z: 
+Simulating Day: 2026-04-15
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-16
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-17
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-18
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-19
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-20
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-21
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-22
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-23
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-24
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-25
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-26
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-27
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-28
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-29
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-04-30
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-05-01
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.641Z: 
+Simulating Day: 2026-05-02
+2026-02-01T12:33:47.641Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-03
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-04
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-05
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-06
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-07
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-08
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-09
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-10
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-11
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-12
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-13
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-14
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-15
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-16
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-17
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-18
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-19
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-20
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-21
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-22
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-23
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-24
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-25
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-26
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-27
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-28
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-29
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-30
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-05-31
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-06-01
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-06-02
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-06-03
+2026-02-01T12:33:47.642Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.642Z: 
+Simulating Day: 2026-06-04
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-05
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-06
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-07
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-08
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-09
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-10
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-11
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-12
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-13
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-14
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-15
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-16
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-17
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-18
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-19
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-20
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-21
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-22
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-23
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-24
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-25
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-26
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-27
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-28
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-29
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-06-30
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-01
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-02
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-03
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-04
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-05
+2026-02-01T12:33:47.643Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.643Z: 
+Simulating Day: 2026-07-06
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-07
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-08
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-09
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-10
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-11
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-12
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-13
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-14
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-15
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-16
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-17
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-18
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-19
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-20
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-21
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-22
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-23
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-24
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-25
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-26
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-27
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-28
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-29
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-30
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: 
+Simulating Day: 2026-07-31
+2026-02-01T12:33:47.644Z:   [Drop] 6 topics (Exam dates passed/today).
+2026-02-01T12:33:47.644Z: [Warning] Insufficient Time. Remaining Topics: 6
+2026-02-01T12:33:51.954Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:52.042Z: Daily Capacity: 120m
+2026-02-01T12:33:52.242Z: Found 5 pending topics.
+2026-02-01T12:33:52.242Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:52.242Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:52.242Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:52.242Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:52.242Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:52.243Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:52.243Z:   Top Candidates: Sorting Algorithms(0.47), Hash Tables(0.44), Searching Algorithms(0.42)
+2026-02-01T12:33:52.243Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:52.243Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:52.243Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:52.243Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:52.243Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:52.243Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:52.243Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:52.243Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:52.243Z:   Top Candidates: Stacks and Queues(0.41), Array Manipulation(0.38)
+2026-02-01T12:33:52.243Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:52.243Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:52.243Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:52.243Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:52.243Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:52.243Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:52.243Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:52.243Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:52.243Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:52.244Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:52.759Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:52.794Z: Daily Capacity: 120m
+2026-02-01T12:33:52.959Z: Found 5 pending topics.
+2026-02-01T12:33:52.960Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:52.960Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:52.960Z: [Priority] Topic: Hash Tables | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.44
+2026-02-01T12:33:52.960Z: [Priority] Topic: Searching Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.42
+2026-02-01T12:33:52.960Z: [Priority] Topic: Sorting Algorithms | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.47
+2026-02-01T12:33:52.960Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:52.961Z:   Top Candidates: Sorting Algorithms(0.47), Hash Tables(0.44), Searching Algorithms(0.42)
+2026-02-01T12:33:52.961Z:   [Schedule] Sorting Algorithms (60m) Fits. Total Used: 60
+2026-02-01T12:33:52.961Z:   [Schedule] Hash Tables (30m) Fits. Total Used: 90
+2026-02-01T12:33:52.961Z:   [Schedule] Searching Algorithms (30m) Fits. Total Used: 120
+2026-02-01T12:33:52.961Z:   [Skip] Stacks and Queues (45m). Too big.
+2026-02-01T12:33:52.961Z:   [Skip] Array Manipulation (45m). Too big.
+2026-02-01T12:33:52.961Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:52.961Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.38
+2026-02-01T12:33:52.961Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 17.0 | Score: 0.41
+2026-02-01T12:33:52.961Z:   Top Candidates: Stacks and Queues(0.41), Array Manipulation(0.38)
+2026-02-01T12:33:52.961Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:52.961Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:52.961Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:52.961Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:52.961Z:   [Revision] Sorting Algorithms (20m)
+2026-02-01T12:33:52.961Z:   [Revision] Hash Tables (20m)
+2026-02-01T12:33:52.961Z:   [Revision] Searching Algorithms (20m)
+2026-02-01T12:33:52.961Z: 
+Simulating Day: 2026-02-05
+2026-02-01T12:33:52.961Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:52.961Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:33:59.752Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:33:59.778Z: Daily Capacity: 120m
+2026-02-01T12:33:59.834Z: Found 2 pending topics.
+2026-02-01T12:33:59.835Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:33:59.835Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:33:59.835Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:33:59.835Z:   Top Candidates: Stacks and Queues(0.39), Array Manipulation(0.36)
+2026-02-01T12:33:59.835Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:33:59.835Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:33:59.835Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:33:59.835Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:33:59.835Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:33:59.835Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:33:59.835Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:34:00.145Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:34:00.263Z: Daily Capacity: 120m
+2026-02-01T12:34:00.357Z: Found 2 pending topics.
+2026-02-01T12:34:00.357Z: 
+Simulating Day: 2026-02-01
+2026-02-01T12:34:00.357Z: [Priority] Topic: Array Manipulation | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.36
+2026-02-01T12:34:00.357Z: [Priority] Topic: Stacks and Queues | Subj: DSA | Exam: Thu Feb 19 2026 05:30:00 GMT+0530 (India Standard Time) | Days: 18.0 | Score: 0.39
+2026-02-01T12:34:00.357Z:   Top Candidates: Stacks and Queues(0.39), Array Manipulation(0.36)
+2026-02-01T12:34:00.357Z:   [Schedule] Stacks and Queues (45m) Fits. Total Used: 45
+2026-02-01T12:34:00.357Z:   [Schedule] Array Manipulation (45m) Fits. Total Used: 90
+2026-02-01T12:34:00.357Z: 
+Simulating Day: 2026-02-02
+2026-02-01T12:34:00.357Z: 
+Simulating Day: 2026-02-03
+2026-02-01T12:34:00.358Z: 
+Simulating Day: 2026-02-04
+2026-02-01T12:34:00.358Z:   [Revision] Stacks and Queues (20m)
+2026-02-01T12:34:00.358Z:   [Revision] Array Manipulation (20m)
+2026-02-01T12:34:05.263Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:34:05.350Z: Daily Capacity: 120m
+2026-02-01T12:34:05.457Z: Found 0 pending topics.
+2026-02-01T12:34:05.470Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:34:05.555Z: Daily Capacity: 120m
+2026-02-01T12:34:05.659Z: Found 0 pending topics.
+2026-02-01T12:34:07.209Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:34:07.293Z: Daily Capacity: 120m
+2026-02-01T12:34:07.396Z: Found 0 pending topics.
+2026-02-01T12:34:07.410Z: 
+
+--- Generating Schedule for 697f441bd307927878e165cc starting 2026-02-01 ---
+2026-02-01T12:34:07.500Z: Daily Capacity: 120m
+2026-02-01T12:34:07.600Z: Found 0 pending topics.
